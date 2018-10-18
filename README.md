@@ -51,3 +51,18 @@
 |deadline_year|int|null:false|
 |user_id|int|null:false,foreign_key:true|
 
+## Pearsonal_information
+|Column|Type|Options|
+|------|----|-------|
+|id|int|null:false,unique:true|
+|country|string|null:false|
+|name|string|null:false|
+|post_code|int|null:false|
+|prefecture|string|null:false|
+|address1|string|null:false|
+|address2|string||
+|company_name|string||
+|phone_number|int|null:false|
+|user_id|int|null:false,foreign_key:true|
+
+
