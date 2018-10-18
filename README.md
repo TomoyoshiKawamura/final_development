@@ -7,7 +7,11 @@
 |e-mail|string|unique:true,null:false|
 |password|string|null:false|
 ### Association
+- has_many :Personal_information
+- has_many :Credit_card
 - has_many :Review
+- belongs_to :User_Items
+
 
 
 ## User_Items
@@ -17,6 +21,8 @@
 |user_id|int|foreign_key:true,null:false|
 |item_id|int|foreign_key:true,null:false|
 ### Association
+- belongs_to :User
+- belongs_to :Item
 
 ## Item
 |Column|Type|Options|
@@ -27,6 +33,9 @@
 |company|string|null:false|
 |explanation|text|null:false|
 ### Association
+- has_many :Review
+- belongs_to :User_Items
+- has_many :Image
 
 ## Review
 |Column|Type|Options|
@@ -38,6 +47,9 @@
 |user_id|int|null:false,foreign_key:true|
 |item_id|int|null:false,foreign_key:true|
 ### Association
+- has_many :Image
+- belongs_to :User
+
 
 ## Image
 |Column|Type|Options|
@@ -47,6 +59,8 @@
 |status|int|null:false|
 |item_id|id|null:false,foreign_key:true|
 ### Association
+- belongs_to :Review
+- belongs_to :Item
 
 ## CreditCard
 |Column|Type|Options|
@@ -58,6 +72,7 @@
 |deadline_year|int|null:false|
 |user_id|int|null:false,foreign_key:true|
 ### Association
+- belongs_to :User
 
 ## Pearsonal_information
 |Column|Type|Options|
@@ -73,4 +88,5 @@
 |phone_number|int|null:false|
 |user_id|int|null:false,foreign_key:true|
 ### Association
+- belongs_to :User
 
