@@ -6,6 +6,8 @@
 |name(kana)|string|null:false|
 |e-mail|string|unique:true,null:false|
 |password|string|null:false|
+### Association
+
 
 ## User_Items
 |Column|Type|Options|
@@ -13,6 +15,7 @@
 |id|int|unique:true|
 |user_id|int|foreign_key:true,null:false|
 |item_id|int|foreign_key:true,null:false|
+### Association
 
 ## Item
 |Column|Type|Options|
@@ -22,6 +25,7 @@
 |price|int|null:false|
 |company|string|null:false|
 |explanation|text|null:false|
+### Association
 
 ## Review
 |Column|Type|Options|
@@ -32,6 +36,7 @@
 |rank|int|null:false|
 |user_id|int|null:false,foreign_key:true|
 |item_id|int|null:false,foreign_key:true|
+### Association
 
 ## Image
 |Column|Type|Options|
@@ -40,6 +45,7 @@
 |content|string|null:false|
 |status|int|null:false|
 |item_id|id|null:false,foreign_key:true|
+### Association
 
 ## CreditCard
 |Column|Type|Options|
@@ -50,6 +56,7 @@
 |deadline_month|int|null:false|
 |deadline_year|int|null:false|
 |user_id|int|null:false,foreign_key:true|
+### Association
 
 ## Pearsonal_information
 |Column|Type|Options|
@@ -64,5 +71,5 @@
 |company_name|string||
 |phone_number|int|null:false|
 |user_id|int|null:false,foreign_key:true|
-
+### Association
 
