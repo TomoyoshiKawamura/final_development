@@ -33,5 +33,21 @@
 |user_id|int|null:false,foreign_key:true|
 |item_id|int|null:false,foreign_key:true|
 
-##
+## Image
+|Column|Type|Options|
+|------|----|-------|
+|id|int|null:false,unique:true|
+|content|string|null:false|
+|status|int|null:false|
+|item_id|id|null:false,foreign_key:true|
+
+## CreditCard
+|Column|Type|Options|
+|------|----|-------|
+|id|int|unique:true,null:false|
+|name|string|null:false|
+|number|int|null:false,unique:true|
+|deadline_month|int|null:false|
+|deadline_year|int|null:false|
+|user_id|int|null:false,foreign_key:true|
 
