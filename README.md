@@ -7,6 +7,7 @@
 |e-mail|string|unique:true,null:false|
 |password|string|null:false|
 ### Association
+- has_many :Review
 
 
 ## User_Items
