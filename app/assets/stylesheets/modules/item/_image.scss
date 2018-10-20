@@ -1,0 +1,23 @@
+&__image {
+  background-color: black;
+  width: 300px;
+  height: 500px;
+  float: left;
+  &__list {
+    background-color: yellow;
+    width: 50px;
+    height: 100%;
+    float: left;
+    &__picture {
+      background-color: white;
+      width: 50px;
+      height: 50px;
+    }
+  }
+  &__preview {
+    background-color: blue;
+    width: 250px;
+    height: 250px;
+    float: left;
+  }
+}

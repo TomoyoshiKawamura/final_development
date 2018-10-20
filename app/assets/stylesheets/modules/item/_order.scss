@@ -1,0 +1,80 @@
+  &__order {
+    background-color: blue;
+    width: 250px;
+    height: 100%;
+    float: right;
+
+    &__share {
+      background-color: black;
+      height: 50px;
+      width: 250px;
+      color: white;
+    }
+
+    &__frame {
+      background-color: blue;
+      height: 100%;
+      width: 250px;
+      &__price {
+        background-color: yellow;
+      }
+      &__delivery {
+        background-color: red;
+      }
+      &__cart {
+        background-color: black;
+        height: 30px;
+        width: 200px;
+        margin: 0 auto;
+        &--image {
+          background-color: yellow;
+          width: 30px;
+          height: 30px;
+          float: left;
+        }
+        &--button {
+        }
+      }
+      &__buy {
+        background-color: gray;
+        height: 30px;
+        width: 200px;
+        margin: 0 auto;
+        &__button {
+        }
+        &__image {
+          background-color: yellow;
+          width: 30px;
+          height: 30px;
+          float: left;
+        }
+      }
+      &__address {
+        background-color: red;
+        height: 30px;
+        width: 250px;
+        &--image {
+          background-color: gray;
+          width: 30px;
+          height: 30px;
+        }
+      }
+      &__text {
+        background-color: yellow;
+        height: 30px;
+        width: 100%;
+      }
+      &__price {
+        background-color: gray;
+        height: 30px;
+        width: 100%;
+        &--button {
+          float: right;
+        }
+      }
+      &__delivery {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
