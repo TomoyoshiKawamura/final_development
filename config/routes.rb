@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root'items#index'
   resources :credit_cards
   resources :personal_informations
   resources :reviews
