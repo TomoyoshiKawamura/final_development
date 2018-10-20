@@ -1,0 +1,23 @@
+.item {
+  height: 100%;
+  width: 100vw;
+  background-color: white;
+  @import "item/genre";
+
+  &__frame {
+  background-color: gray;
+  height: 100%;
+  width: calc(100% - 250px);
+  float: left;
+    @import "item/image";
+    @import "item/product"
+  }
+
+  @import "item/order";
+}
+
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: block;
+}

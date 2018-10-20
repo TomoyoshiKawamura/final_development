@@ -1,0 +1,38 @@
+&__product {
+  background-color: gray;
+  width: 70%;
+  height: 100%;
+  float: left;
+  &__name {
+    height: 30px;
+    width: 100%;
+    background-color: white;
+  }
+  &__seller {
+    height: 20px;
+    width: 100%;
+    background-color: red;
+  }
+  &__star {
+    height: 100%;
+    width: 100px;
+    float: left;
+    background-color: yellow;
+  }
+  &__star-count {
+    height: calc(100% + 30px);
+    width: 100%;
+    background-color: white;
+  }
+  &__price {
+    height: 30px;
+    width: 100%;
+    background-color: red;
+  }
+  &__information {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    color: white;
+  }
+}

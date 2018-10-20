@@ -1,24 +1,86 @@
-<p id="notice"><%= notice %></p>
+<div class="item">
+  <div class="item__genre"></div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @item.title %>
-</p>
+  <div class="item__frame">
+    <div class="item__frame__image">
+      <div class="item__frame__image__list">
+        <div class="item__frame__image__list__picture">
+          画像
+        </div>
+        画像<br>一覧
+      </div>
+      <div class="item__frame__image__preview">
+        プレビュー
+      </div>
+    </div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @item.price %>
-</p>
+    <div class="item__frame__product">
+      <div class="item__frame__product__name">
+        商品名
+      </div>
+      <div class="item__frame__product__seller">
+        出品者
+      </div>
+      <div class="item__frame__product__star">
+        星
+      </div>
+      <div class="item__frame__product__star-count">
+        ○件のカスタマーレビュー｜○人が質問に回答しました
+      </div>
+      <div class="item__frame__product__price">
+        価格：¥ 100
+      </div>
+      <div class="item__frame__product__information">
+        商品情報<br>
+        商品情報<br>
+        商品情報<br>
+        商品情報
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Company:</strong>
-  <%= @item.company %>
-</p>
 
-<p>
-  <strong>Explanation:</strong>
-  <%= @item.explanation %>
-</p>
+  <div class="item__order">
+    <div class="item__order__share">
+      シェア
+    </div>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+    <div class="item__order__frame">
+      <div class="item__order__frame__price">¥ 100</div>
+      <div class="item__order__frame__delivery">
+        対象商品¥ 2,000以上の注文で通常配送無料 詳細<br>
+        10/20 土曜日 にお届けするには、今から6 時間 36 分以内にお急ぎ便を選択して注文を確定してください（Amazonプライム会員は無料） 詳細を見る<br>
+        在庫あり。 在庫状況について<br>
+        この商品は、Amazon.co.jp が販売、発送します。
+      </div>
+      <div class="item__order__frame__cart">
+        <div class="item__order__frame__cart--image"></div>
+        <input type="button" class="item__order__frame__cart--button" name="cart" value="カートに入れる">
+      </div>
+
+      <div class="item__order__frame__buy">
+        <input type="button" class="item__order__frame__buy__button" name="buy" value="今すぐ買う">
+        <div class="item__order__frame__buy__image"></div>
+      </div>
+
+      <div class="item__order__frame__address">
+        <div class="item__order__frame__address--image"></div>
+      </div>
+
+      <div class="item__order__frame__text">
+        こちらからもご購入いただけます
+      </div>
+
+      <div class="item__order__frame__price">
+        ¥ 100
+        <input type="button" class="item__order__frame__price--button" name="cart" value="カートに入れる">
+      </div>
+      <div class="item__order__frame__delivery">
+        配送情報
+        <br>配送情報
+        <br>配送情報
+        <br>配送情報
+      </div>
+    </div>
+  </div>
+</div>
