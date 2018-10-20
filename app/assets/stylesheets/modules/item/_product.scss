@@ -1,6 +1,6 @@
 &__product {
   background-color: gray;
-  width: 890px;
+  width: 70%;
   height: 100%;
   float: left;
   &__name {
@@ -14,16 +14,19 @@
     background-color: red;
   }
   &__star {
-    height: 30px;
+    height: 100%;
     width: 100px;
     float: left;
     background-color: yellow;
   }
   &__star-count {
-    height: 30px;
+    height: calc(100% + 30px);
+    width: 100%;
     background-color: white;
   }
   &__price {
+    height: 30px;
+    width: 100%;
     background-color: red;
   }
   &__information {

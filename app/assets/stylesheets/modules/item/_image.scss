@@ -1,7 +1,7 @@
 &__image {
   background-color: black;
-  width: 300px;
-  height: 500px;
+  width: 30%;
+  height: 100%;
   float: left;
   &__list {
     background-color: yellow;
@@ -16,8 +16,8 @@
   }
   &__preview {
     background-color: blue;
-    width: 250px;
-    height: 250px;
+    width: calc(100% - 50px);
+    height: auto;
     float: left;
   }
 }

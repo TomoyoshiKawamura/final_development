@@ -7,7 +7,7 @@
   &__frame {
   background-color: gray;
   height: 100%;
-  width: 1190px;
+  width: calc(100% - 250px);
   float: left;
     @import "item/image";
     @import "item/product"
