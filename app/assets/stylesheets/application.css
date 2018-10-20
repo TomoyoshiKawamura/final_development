@@ -1,2 +1,3 @@
 @import "./reset";
-@import "color/content"
+@import "color/content";
+@import "modules/header";
