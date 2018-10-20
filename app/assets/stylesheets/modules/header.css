@@ -1,0 +1,165 @@
+  .nav-belt {
+    height: 60px;
+    background-color: #c09a8b;
+  }
+
+  .nav-belt-left {
+    height: 100%;
+    width:  192px;
+    float: left;
+    background-color: #232f3e;
+  }
+
+  .amazon-logo {
+    font-size: 26px;
+    font-family: monospace;
+    color: #ffffff;
+    margin-left: 20px;
+  }
+
+  .amazon-logo-side {
+    font-size: 3px;
+    color: #ffffff;
+  }
+
+  .nav-belt-center {
+    height: 100%;
+    width:  848px;
+    float: left;
+    background-color: #232f3e;
+  }
+
+  #search-text {
+    width:  88%;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  #search-button {
+    padding: 8.5px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: #f3a847;
+    border-color: #f3a847;
+
+  }
+
+  .nav-belt-right {
+    height: 100%;
+    width:  400px;
+    float: left;
+    background-color: #232f3e;
+  }
+
+
+
+  .nav-main {
+       height: 39px;
+  }
+
+  .nav-main-left {
+    height: 100%;
+    width:  192px;
+    float: left;
+    color: #ffffff;
+    background-color: #232f3e;
+  }
+
+  .address-icon {
+    font-size: 22px;
+    float: left;
+  }
+
+  .address {
+    float: left;
+  }
+
+  .delivery-destination-name {
+    font-size: 12px;
+    font-family: arial,sans-serif;
+  }
+
+  .post-code {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: arial,sans-serif;
+  }
+
+  .nav-main-center {
+    height: 100%;
+    width:  720.3px;
+    float: left;
+    background-color: #232f3e;
+  }
+
+  .shop-category {
+    line-height: 55px;
+    font-weight: bold;
+    margin-right: 25px;
+    float: left;
+    color: #ffffff;
+  }
+
+  .shop-menu-container {
+    font-size: 12px;
+    color: #ccc;
+  }
+
+  #amazon-point {
+    color: #e9943c;
+  }
+
+  .menu {
+    font-size: 13px;
+    padding: 0 10px 0 10px;
+  }
+
+  .nav-main-right {
+    height: 100%;
+    width:  527.7px;
+    float: left;
+    color: #fff;
+    background-color: #232f3e;
+  }
+
+  .nav-status-bar {
+    margin-left: 90px;
+  }
+
+  .personal_data {
+    float: left;
+  }
+
+  .user-name {
+    font-size: 12px;
+    color: #ccc;
+  }
+
+  .account-list {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .order-history {
+    line-height: 56px;
+    margin-left: 25px;
+    font-size: 14px;
+    float: left;
+    font-weight: bold;
+  }
+
+  .prime {
+    line-height: 56px;
+    margin-left: 25px;
+    font-size: 14px;
+    float: left;
+    font-weight: bold;
+  }
+
+  .cart {
+    line-height: 56px;
+    margin-left: 25px;
+    font-size: 14px;
+    float: left;
+    font-weight: bold;
+  }
