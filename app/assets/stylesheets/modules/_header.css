@@ -29,19 +29,19 @@
     background-color: #232f3e;
   }
 
-  #search-text {
+  #item-search-text {
     width:  88%;
-    padding: 10px;
+    padding: 5px;
     margin-top: 10px;
   }
 
-  #search-button {
-    padding: 8.5px;
+  #item-search-button {
+
+    padding: 10px 9px 8px 9px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     background-color: #f3a847;
     border-color: #f3a847;
-
   }
 
   .nav-belt-right {
@@ -85,6 +85,7 @@
     font-family: arial,sans-serif;
   }
 
+
   .nav-main-center {
     height: 100%;
     width:  720.3px;
@@ -113,6 +114,7 @@
     font-size: 13px;
     padding: 0 10px 0 10px;
   }
+
 
   .nav-main-right {
     height: 100%;
