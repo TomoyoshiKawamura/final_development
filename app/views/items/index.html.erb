@@ -1,33 +1,105 @@
-<p id="notice"><%= notice %></p>
+<div class="wrapper">
+    <!--  <div class="header">
+       <div class="header-top">insert
+       </div>
+       <div class="header-bottom">insert
+       </div>
+     </div> -->
 
-<h1>Items</h1>
+      <div class="contents">
+        <div class="content-top">content-top
+        </div>
+      <div class="content-left">
+        <h3 class="category">recommend</h3>
+        <div class="items">
+      </div>
+        <h3 class="category">recommend</h3>
+        <div class="items">
+        </div>
+         <h3 class="category">recommend</h3>
+         <div class="items">
+         </div>
+         <h3 class="category">recommend</h3>
+         <div class="items">
+         </div>
+       </div>
+       <div class="content-right">
+         <div class="mini-items">
+           <h3 class="mini-title">ranking</p>
+           <p>1.brabrabra</p>
+           <p>2.brabrabra</p>
+           <p>3.brabrabra</p>
+           <p>4.brabrabra</p>
+           <p>5.brabrabra</p>
+         </div>
+         <div class="mini-items">
+           <h3 class="mini-title">campaign</h3>
+           <p class="text">brabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrab</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Price</th>
-      <th>Company</th>
-      <th>Explanation</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+         </div>
+         <div class="mini-items">
+           <h3 class="mini-title">campaign</h3>
+           <p class="text">brabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrabrab</p>
+         </div>
+        <!--  <div class="items mini">
+         </div> -->
+       </div>
+     </div>
 
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.title %></td>
-        <td><%= item.price %></td>
-        <td><%= item.company %></td>
-        <td><%= item.explanation %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+     <div class="footer">
+       <div class="footer-top">
+         <p>topへ戻る</p>
+       </div>
 
-<br>
+       <div class="footer-upper-mid">
+         <div class="footer-content">
+           <ul class="lists">
+             <li class="list about">About</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+           </ul>
+         </div>
+         <div class="footer-content">
+           <ul class="lists">
+             <li class="list about">Business</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+           </ul>
+         </div>
+         <div class="footer-content">
+           <ul class="lists">
+             <li class="list about">Payment</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+           </ul>
+         </div>
+         <div class="footer-content">
+           <ul class="lists">
+             <li class="list about">Help & Guide</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+             <li class="list">brabrabrabra</li>
+           </ul>
+         </div>
+       </div>
 
-<%= link_to 'New Item', new_item_path %>
+       <div class="footer-lower-mid"></div>
+
+       <div class="footer-bottom"></div>
+     </div>
+   </div>
