@@ -9,7 +9,9 @@
   </head>
 
   <body>
-    <%= render "layouts/header" %>
+    <% unless request.filtered_parameters[:controller].include?('devise') %> 
+      <%= render "layouts/header" %>  
+    <% end %>
     <%= yield %>
   </body>
 </html>

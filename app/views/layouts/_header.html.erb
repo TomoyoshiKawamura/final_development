@@ -46,9 +46,12 @@
             <div class="nav-main-right">
                 <div class="nav-status-bar">
                     <div class="personal_data">
-                        <div class="nav-status-user-name">
-                            テスターさん
-                        </div>
+                        <% if user_signed_in? %>                         
+                            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-status-user-name' %>
+                        <% else %>
+                            <%= link_to "ログイン", new_user_session_path, class: 'nav-status-user-name' %>
+                            <%= link_to "新規登録", new_user_registration_path, class: 'nav-status-user-name' %>
+                        <% end %>
                         <div class="nav-status-account-list">
                             アカウント＆リスト
                         </div>
