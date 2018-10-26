@@ -129,19 +129,19 @@
     margin-left: 90px;
   }
 
-  .personal_data {
+  .personal-data {
     float: left;
     bottom: 0px;
     position: absolute;
   }
 
-  .nav-status-user-name {
+  .personal-data-user-status {
     font-size: 12px;
     color: #ccc;
     text-decoration: none;
   }
 
-  .nav-status-account-list {
+  .personal-data-account-list {
     font-size: 14px;
     font-weight: bold;
   }

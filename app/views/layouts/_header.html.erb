@@ -18,11 +18,13 @@
 
         <div class="nav-main">
             <div class="nav-main-left">
-                <div class="nav-main-left-address-icon"> ● </div>
-                <div class="nav-main-left-address">
-                    <div class="delivery-destination-name">お届け先 テスター さん</div>
-                    <div class="nav-main-left-post-code">384-2609</div>
-                </div>
+                <% if user_signed_in? %> 
+                    <div class="nav-main-left-address-icon"> ● </div>
+                    <div class="nav-main-left-address">
+                        <div class="delivery-destination-name">お届け先 <%= current_user.name %> さん</div>
+                        <div class="nav-main-left-post-code">384-2609</div>
+                    </div>
+                <% end %>
             </div>
 
             <div class="nav-main-center">
@@ -45,14 +47,15 @@
 
             <div class="nav-main-right">
                 <div class="nav-status-bar">
-                    <div class="personal_data">
-                        <% if user_signed_in? %>                         
-                            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-status-user-name' %>
+                    <div class="personal-data">
+                        <% if user_signed_in? %> 
+                            <a class='personal-data-user-status' > <%= current_user.name %> さん</a>                     
+                            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'personal-data-user-status' %>
                         <% else %>
-                            <%= link_to "ログイン", new_user_session_path, class: 'nav-status-user-name' %>
-                            <%= link_to "新規登録", new_user_registration_path, class: 'nav-status-user-name' %>
+                            <%= link_to "ログイン", new_user_session_path, class: 'personal-data-user-status' %>
+                            <%= link_to "新規登録", new_user_registration_path, class: 'personal-data-user-status' %>
                         <% end %>
-                        <div class="nav-status-account-list">
+                        <div class="personal-data-account-list">
                             アカウント＆リスト
                         </div>
                     </div>
