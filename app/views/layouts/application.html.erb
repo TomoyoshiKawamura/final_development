@@ -9,8 +9,9 @@
   </head>
 
   <body>
-    <% unless request.filtered_parameters[:controller].include?('devise') %> 
-      <%= render "layouts/header" %>  
+    <!-- サインアップ、ログイン画面の時にはヘッダーを表示しない -->
+    <% unless request.filtered_parameters[:controller].include?('devise') %>
+      <%= render "layouts/header" %>
     <% end %>
     <%= yield %>
   </body>
