@@ -2,7 +2,7 @@
 
         <div class="nav-belt">
             <div class="nav-belt-left">
-                <a href="" style="text-decoration:none">
+                <a href="/" style="text-decoration:none">
                     <span class="amazon-logo">amazon</span><span class="amazon-logo-side">.co.jp</span>
                 </a>
             </div>
@@ -18,7 +18,7 @@
 
         <div class="nav-main">
             <div class="nav-main-left">
-                <% if user_signed_in? %> 
+                <% if user_signed_in? %>
                     <div class="nav-main-left-address-icon"> ● </div>
                     <div class="nav-main-left-address">
                         <div class="delivery-destination-name">お届け先 <%= current_user.name %> さん</div>
@@ -48,8 +48,8 @@
             <div class="nav-main-right">
                 <div class="nav-status-bar">
                     <div class="personal-data">
-                        <% if user_signed_in? %> 
-                            <a class='personal-data-user-status' > <%= current_user.name %> さん</a>                     
+                        <% if user_signed_in? %>
+                            <a class='personal-data-user-status' > <%= current_user.name %> さん</a>
                             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'personal-data-user-status' %>
                         <% else %>
                             <%= link_to "ログイン", new_user_session_path, class: 'personal-data-user-status' %>
