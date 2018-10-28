@@ -1,10 +1,9 @@
 <div class="register-wrapper">
   <div class="register-container">
-
-    <div class="register-amazon-logo"><span class="register-amazon">amazon</span>.co.jp</div>
-      <div class="register-form">
-        <h1>アカウントを作成</h1>
-          <div class="register-field">
+    <a class="register-amazon-logo" href="/" style="text-decoration:none"><span class="register-amazon">amazon</span>.co.jp</a>
+    <div class="register-form">
+      <h1>アカウントを作成</h1>
+      <div class="register-field">
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
@@ -41,12 +40,10 @@
           </div>
         <% end %>
 
-        
-
-        </div>
-      <p class="weak-letter">ログインすることにより、当社の利用規約およびプライバシー規約に同意したとみなされます</p>
-      <p class="register-border">すでにアカウントをお持ちですか？<span>ログイン</span></p>
       </div>
+    <p class="weak-letter">ログインすることにより、当社の利用規約およびプライバシー規約に同意したとみなされます</p>
+    <p class="register-border">すでにアカウントをお持ちですか？<a class="register-border-login" href="/users/sign_in" style="text-decoration:none">ログイン</a></p>
+    </div>
   </div>
 
   <div class="register-footer">
