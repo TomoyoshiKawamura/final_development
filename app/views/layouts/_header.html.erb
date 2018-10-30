@@ -7,8 +7,14 @@
                 </a>
             </div>
 
-            <div class="nav-belt-center">
+            <%# <div class="nav-belt-center">
                 <input type="text" id="item-search-text"><button id="item-search-button"><span>🔍</span></button>
+            </div> %>
+
+            <div class="nav-belt-center">
+                <%= form_tag( search_items_path, method: :get) do %>
+                    <input id="item-search-text" name="keyword" type="text" value=""><button id="item-search-button"><span>🔍</span></button>
+                <% end %>
             </div>
 
             <div class="nav-belt-right">

@@ -61,6 +61,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    # 検索フォームのキーワードをあいまい検索して、productsテーブルから20件の作品情報を取得する
+    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
@@ -69,6 +74,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:title, :price, :company, :explanation)
+      params.require(:item).permit(:name, :price, :company, :explanation)
     end
 end
