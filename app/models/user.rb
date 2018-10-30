@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
+  has_many :personal_information
+  has_many :credit_cards
   has_one :cart
   after_create :create_cart
 
