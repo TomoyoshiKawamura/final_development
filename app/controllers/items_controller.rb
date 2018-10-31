@@ -62,8 +62,8 @@ class ItemsController < ApplicationController
   end
 
   def search
-    # 検索フォームのキーワードをあいまい検索して、productsテーブルから20件の作品情報を取得する
-    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+    # 検索フォームのキーワードをあいまい検索する
+    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
   private
