@@ -1,0 +1,18 @@
+%p#notice= notice
+%h1 Item Images
+%table
+  %thead
+    %tr
+      %th Image
+      %th Item
+      %th{:colspan => "3"}
+  %tbody
+    - @item_images.each do |item_image|
+      %tr
+        %td= item_image.image
+        %td= item_image.item_id
+        %td= link_to 'Show', item_image
+        %td= link_to 'Edit', edit_item_image_path(item_image)
+        %td= link_to 'Destroy', item_image, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Item Image', new_item_image_path
