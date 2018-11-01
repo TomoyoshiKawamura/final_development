@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @credit_card.name
+%p
+  %strong Number:
+  = @credit_card.number
+%p
+  %strong Deadline month:
+  = @credit_card.deadline_month
+%p
+  %strong Deadline year:
+  = @credit_card.deadline_year
+%p
+  %strong User:
+  = @credit_card.user_id
+= link_to 'Edit', edit_credit_card_path(@credit_card)
+|
+= link_to 'Back', credit_cards_path

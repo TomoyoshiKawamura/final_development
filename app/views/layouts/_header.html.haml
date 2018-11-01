@@ -1,0 +1,54 @@
+%body
+  %header.header
+    .nav-belt
+      .nav-belt-left
+        %a{:href => "/", :style => "text-decoration:none"}
+          %span.amazon-logo amazon
+          %span.amazon-logo-side .co.jp
+      .nav-belt-center
+        = form_tag( search_items_path, method: :get) do
+          %input#item-search-text{:name => "keyword", :type => "text", :value => ""}/
+          %button#item-search-button
+            %span 🔍
+      .nav-belt-right
+        右 プライム会員  ロゴ
+    .nav-main
+      .nav-main-left
+        - if user_signed_in?
+          .nav-main-left-address-icon ●
+          .nav-main-left-address
+            .delivery-destination-name
+              お届け先 #{current_user.name} さん
+            .nav-main-left-post-code 384-2609
+      .nav-main-center
+        .nav-main-center-shop-category
+          カテゴリー
+        .shop-menu-container
+          .nav-amazon-point
+            Amazonポイント:
+            %span#amazon-point 22
+          .nav-main-center-shop-menu
+            %a.nav-shop-menu マイストア
+            %a.nav-shop-menu タイムセール
+            %a.nav-shop-menu ギフト券
+            %a.nav-shop-menu Amazonで売る
+            %a.nav-shop-menu ヘルプ
+      .nav-main-right
+        .nav-status-bar
+          .personal-data
+            - if user_signed_in?
+              %a.personal-data-user-status
+                = current_user.name
+                さん
+              = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'personal-data-user-status'
+            - else
+              = link_to "ログイン", new_user_session_path, class: 'personal-data-user-status'
+              = link_to "新規登録", new_user_registration_path, class: 'personal-data-user-status'
+            .personal-data-account-list
+              アカウント＆リスト
+          .nav-status-order-history
+            注文履歴
+          .nav-status-prime
+            プライム
+          .nav-status-cart
+            カート

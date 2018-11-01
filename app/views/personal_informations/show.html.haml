@@ -1,0 +1,22 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @personal_information.name
+%p
+  %strong Post code:
+  = @personal_information.post_code
+%p
+  %strong Address1:
+  = @personal_information.address1
+%p
+  %strong Address2:
+  = @personal_information.address2
+%p
+  %strong Phone number:
+  = @personal_information.phone_number
+%p
+  %strong User:
+  = @personal_information.user_id
+= link_to 'Edit', edit_personal_information_path(@personal_information)
+|
+= link_to 'Back', personal_informations_path

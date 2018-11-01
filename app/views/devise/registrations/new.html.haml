@@ -1,0 +1,43 @@
+.register-wrapper
+  .register-container
+    %a.register-amazon-logo{:href => "/", :style => "text-decoration:none"}
+      %span.register-amazon> amazon
+      \.co.jp
+    .register-form
+      %h1 アカウントを作成
+      .register-field
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .field
+            = f.label :"名前"
+            %br/
+            = f.text_field :name, class: "register-input", autofocus: true
+          .field
+            = f.label :"フリガナ"
+            %br/
+            = f.text_field :name_kana, class: "register-input"
+          .field
+            = f.label :"メールアドレス"
+            %br/
+            = f.email_field :email, class: "register-input", autocomplete: "email"
+          .field
+            = f.label :"パスワード"
+            = f.password_field :password, class: "register-input", autocomplete: "new-password", placeholder: "最低6文字必要です"
+            %span.weak-letter パスワードの長さは最低6文字です
+          .field
+            = f.label :"もう一度パスワードを入力してください"
+            %br/
+            = f.password_field :password_confirmation, class: "register-input", autocomplete: "new-password"
+          .actions
+            = f.submit "Amazonアカウントを作成", class: "register-input register-submit"
+      %p.weak-letter ログインすることにより、当社の利用規約およびプライバシー規約に同意したとみなされます
+      %p.register-border
+        すでにアカウントをお持ちですか？
+        %a.register-border-login{:href => "/users/sign_in", :style => "text-decoration:none"} ログイン
+  .register-footer
+    %ul
+      %li.register-footer-bottom 利用規約
+      %li.register-footer-bottom プライバシー規約
+      %li.register-footer-bottom ヘルプ
+    .register-footer-right 1996-2018, Amazon.com, Inc. or its affiliates
+  %div

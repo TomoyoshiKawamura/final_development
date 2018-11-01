@@ -1,0 +1,29 @@
+= form_with(model: personal_information, local: true) do |form|
+  - if personal_information.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(personal_information.errors.count, "error")
+        prohibited this personal_information from being saved:
+      %ul
+        - personal_information.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :name
+    = form.text_field :name, id: :personal_information_name
+  .field
+    = form.label :post_code
+    = form.text_field :post_code, id: :personal_information_post_code
+  .field
+    = form.label :address1
+    = form.text_field :address1, id: :personal_information_address1
+  .field
+    = form.label :address2
+    = form.text_field :address2, id: :personal_information_address2
+  .field
+    = form.label :phone_number
+    = form.text_field :phone_number, id: :personal_information_phone_number
+  .field
+    = form.label :user_id
+    = form.text_field :user_id, id: :personal_information_user_id
+  .actions
+    = form.submit

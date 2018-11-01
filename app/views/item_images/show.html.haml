@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Image:
+  = @item_image.image
+%p
+  %strong Item:
+  = @item_image.item_id
+= link_to 'Edit', edit_item_image_path(@item_image)
+|
+= link_to 'Back', item_images_path

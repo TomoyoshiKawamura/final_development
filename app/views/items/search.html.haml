@@ -1,0 +1,21 @@
+.search-wrapper
+  .search-result-bar
+    .search-result-count
+      = @items.length
+      件の結果
+.search-main
+  .search-left-navigator
+  .search-right-navigator
+    .results-container
+      - @items.each do |item|
+        .search-item-container
+          - if item.item_images[0] == nil
+            = link_to image_tag('/images/no_image.png', size: '200x200'), "/items/#{item.id}"
+          - else
+            = link_to image_tag(item.item_images[0].image, size: '200x200'), "/items/#{item.id}"
+          = link_to(item_path(item), class: 'search-item-name', style: "text-decoration:none") do
+            = item.name
+          .search-item-company
+            = item.company
+          .search-item-price
+            ¥ #{item.price.to_s(:delimited)}
