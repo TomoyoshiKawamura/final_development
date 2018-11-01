@@ -1,0 +1,57 @@
+<div class="register-wrapper">
+  <div class="register-container">
+    <a class="register-amazon-logo" href="/" style="text-decoration:none"><span class="register-amazon">amazon</span>.co.jp</a>
+    <div class="register-form">
+      <h1>アカウントを作成</h1>
+      <div class="register-field">
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="field">
+            <%= f.label :"名前" %> <br />
+            <%= f.text_field :name, class: "register-input", autofocus: true %>
+          </div>
+
+          <div class="field">
+            <%= f.label :"フリガナ" %> <br />
+            <%= f.text_field :name_kana, class: "register-input" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :"メールアドレス" %><br />
+            <%= f.email_field :email, class: "register-input", autocomplete: "email" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :"パスワード" %>
+            
+            <%= f.password_field :password, class: "register-input", autocomplete: "new-password", placeholder: "最低6文字必要です" %>
+            <span class="weak-letter">パスワードの長さは最低6文字です</span>
+          </div>
+
+          <div class="field">
+            <%= f.label :"もう一度パスワードを入力してください" %><br />
+            <%= f.password_field :password_confirmation, class: "register-input", autocomplete: "new-password" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Amazonアカウントを作成", class: "register-input register-submit" %>
+          </div>
+        <% end %>
+
+      </div>
+    <p class="weak-letter">ログインすることにより、当社の利用規約およびプライバシー規約に同意したとみなされます</p>
+    <p class="register-border">すでにアカウントをお持ちですか？<a class="register-border-login" href="/users/sign_in" style="text-decoration:none">ログイン</a></p>
+    </div>
+  </div>
+
+  <div class="register-footer">
+    <ul>
+      <li class="register-footer-bottom">利用規約</li>
+      <li class="register-footer-bottom">プライバシー規約</li>
+      <li class="register-footer-bottom">ヘルプ</li>
+    </ul>
+    <div class="register-footer-right">1996-2018, Amazon.com, Inc. or its affiliates</div>
+  </div>
+<div>

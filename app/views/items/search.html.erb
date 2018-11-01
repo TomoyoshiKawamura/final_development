@@ -1,0 +1,30 @@
+<div class= "search-wrapper">
+    <div class= "search-result-bar">
+        <div class= "search-result-count">
+            <%= @items.length %>件の結果
+        </div>
+    </div>
+</div>
+
+<div class= "search-main">
+    <div class= "search-left-navigator">
+    </div>
+    <div class= "search-right-navigator">
+        <div class= "results-container">
+            <% @items.each do |item| %>
+                <div class="search-item-container">
+                    <% if item.item_images[0] == nil %>
+                        <%= link_to image_tag('/images/no_image.png', size: '200x200'), "/items/#{item.id}" %> 
+                    <% else %>
+                        <%= link_to image_tag(item.item_images[0].image, size: '200x200'), "/items/#{item.id}" %>
+                    <% end %>
+                    <%= link_to(item_path(item), class: 'search-item-name', style: "text-decoration:none") do %>
+                        <%= item.name %>
+                    <% end %>
+                    <div class="search-item-company"> <%= item.company %> </div>
+                    <div class="search-item-price"> ¥ <%= item.price.to_s(:delimited) %> </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
