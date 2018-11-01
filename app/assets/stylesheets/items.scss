@@ -1,0 +1,149 @@
+html, body {
+ margin: 0;
+ padding: 0;
+// overflow: scroll;
+}
+
+ul {
+ overflow: scroll;
+ margin: 0;
+ padding: 0;
+}
+
+.wrapper {
+ margin: 0;
+ padding: 0;
+// overflow: scroll;
+}
+
+// .header {
+//  position: fixed;
+//  width: 100%;
+//  height: 100px;
+//  background-color: #000066;
+//  color: white;
+// }
+
+.header-top {
+ line-height: 50px;
+ background-color: #DDDDDD;
+ width: 100%;
+ height: 50%;
+}
+
+.header-bottom {
+ line-height: 50px;
+ background-color: #CCCCCC;
+ width: 100%;
+ height:50%;
+}
+
+.contents {
+ width: 100%;
+ height: 1700px;
+ background-color: #111111;
+ color: white;
+}
+
+.content-top {
+ width: 100%;
+ height: 400px;
+ background-color: yellow;
+}
+
+.content-left {
+ width: 70%;
+ height: calc(100% - 400px);
+ background-color: red;
+ float: left;
+ color: white;
+ box-sizing:border-box;
+
+}
+
+.items {
+ width: 90%;
+ height: 19%;
+ background-color: #888888;
+ margin: 1px auto;
+ box-sizing: border-box;
+
+}
+
+.category {
+ padding-left: 30px;
+}
+.content-right {
+ width: 30%;
+ height: calc(100% - 400px);
+ background-color: pink;
+ float: left;
+ color: white;
+}
+
+.mini-items {
+ width: 90%;
+ height: 22%;
+ box-sizing: border-box;
+ background-color: #888888;
+ margin: 10px auto;
+ text-align: center;
+ padding: 10px;
+
+}
+.mini-title {
+ font-weight: bold;
+}
+.text {
+ word-wrap: break-word;
+}
+
+.footer {
+ width: 100%;
+ height: 700px;
+ background-color: #000099;
+}
+
+.footer-top {
+ width: 100%;
+ height:50px;
+ background-color: #35465B ;
+ padding-top: 10px;
+ text-align: center;
+}
+
+.footer-upper-mid {
+ width: 100%;
+ height: 300px;
+ background-color: #212E3F;
+ border-bottom: 1px solid white;
+ box-sizing: border-box;
+}
+
+.footer-content {
+ width:25%;
+ float: left;
+ text-align: center;
+ padding-top:20px;
+}
+
+.list {
+ list-style: none;
+}
+.about {
+ color: white;
+ font-weight: bold;
+
+}
+.footer-lower-mid {
+ width: 100%;
+ height: 150px;
+ background-color: #212E3F;
+
+}
+
+.footer-bottom {
+ width: 100%;
+ height: 200px;
+ background-color: #121922;
+}
