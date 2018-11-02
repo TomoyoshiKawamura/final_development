@@ -17,6 +17,10 @@
     margin-left: 210px;
 }
 
+.results-container {
+    @include clearfix;
+}
+
 .search-item-container {
     height: 400px;
     width: 260px;
