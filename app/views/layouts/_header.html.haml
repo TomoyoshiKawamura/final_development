@@ -4,12 +4,12 @@
       .nav-belt-left
         %a{:href => "/", :style => "text-decoration:none"}
           %span.amazon-logo amazon
-          %span.amazon-logo-side .co.jp
+          %span.amazon-logo-side> .co.jp
       .nav-belt-center
         = form_tag( search_items_path, method: :get) do
-          %input#item-search-text{:name => "keyword", :type => "text", :value => ""}/
-          %button#item-search-button
-            %span 🔍
+          %input#item-search-text{:name => "keyword", :type => "text", :value => ""}<
+            %button#item-search-button
+              %span 🔍
       .nav-belt-right
         右 プライム会員  ロゴ
     .nav-main
