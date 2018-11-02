@@ -10,4 +10,7 @@
     / サインアップ、ログイン画面の時にはヘッダーを表示しない
     - unless request.filtered_parameters[:controller].include?('devise')
       = render "layouts/header"
-    = yield
+      = yield
+      = render "layouts/footer"
+    - else
+      = yield
