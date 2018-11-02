@@ -176,4 +176,60 @@ ul {
  width: 100%;
  height: 200px;
  background-color: #121922;
+ box-sizing: border-box;
+ padding: 10px 250px;
 }
+
+.footer-bottom--top {
+  width: 100%;
+  height: 33%;
+}
+
+.footer-bottom-middle {
+  width: 100%;
+  height: 33%;
+}
+
+.amazon-services {
+  float: left;
+  width: 25%;
+}
+
+.amazon-service-title {
+  color: $white;
+  font-size: 10px;
+}
+
+.amazon-service-explanation {
+  font-size: 8px;
+  color: #727476;
+}
+
+.footer-bottom--bottom {
+  width: 100%;
+  height: 34%;
+  clear: both;
+  position: relative;
+}
+
+.amazon-services-regulations {
+  position: absolute;
+  bottom: 0;
+  padding-left:  140px;
+
+}
+
+.amazon-services-regulation {
+  float: left;
+  padding-left: 10px;
+  color: $white;
+}
+
+.right-sentences {
+  padding-left: 20px;
+  // font-size: 11px;
+  color: #CCCDCE;
+}
+
+
+
