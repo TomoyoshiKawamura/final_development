@@ -3,6 +3,7 @@
   width: 100vw;
   background-color: white;
   @import "item/genre";
+  @include clearfix;
 
   &__frame {
   background-color: gray;
