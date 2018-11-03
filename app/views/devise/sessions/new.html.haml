@@ -1,17 +1,36 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.login-wrapper
+  .login-container
+    %a.login-amazon-logo{:href => "/", :style => "text-decoration:none"}
+      %span.login-amazon> amazon
+      \.co.jp
+    .login-form
+      %h1  ログイン
+      .login-field
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field
+            = f.label :"Eメール"
+            %br/
+            = f.email_field :email, class: "login-input", autofocus: true, autocomplete: "email"
+          .field
+            = f.label :"パスワード"
+            %br/
+            = f.password_field :password, class: "login-input", autocomplete: "current-password"
+          .login-action-field
+            .actions
+              = f.submit "ログイン", class: "login-input login-submit", role: "botton"
+            - if devise_mapping.rememberable?
+              .field
+                = f.check_box :remember_me
+                = f.label :"ログインしたままにする 詳細"
+          .login-divider
+            %h5 Amazonの新しいお客様ですか？
+
+  .login-footer
+    %ul
+      %li.login-footer-bottom 利用規約
+      %li.login-footer-bottom プライバシー規約
+      %li.login-footer-bottom ヘルプ
+    .login-footer-right 1996-2018, Amazon.com, Inc. or its affiliates
+  %div
+
+-# = render "devise/shared/links"
