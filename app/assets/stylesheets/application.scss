@@ -1,7 +1,9 @@
 @import "./reset";
 @import "color/content";
 @import "mixin/side_line";
+@import "mixin/clearfix";
 @import "modules/header";
+@import "modules/footer";
 @import "modules/top_page";
 @import "modules/item";
 @import "modules/register";
