@@ -1,41 +1,20 @@
-// @mixin side_line {
-//     .title-border {
-//         display: flex;
-//         align-items: center;
-//     }
-//     .title-border:before, .title-border:after {
-//     border-top: 1px solid;
-//     content: "";
-//     flex-grow: 1;
-//     }
+@mixin side_line($line_color) { ///文字の両サイドに線を表示させる　文字自体は中央ぞろえになる
+    // @include side_line(#blue); こんな感じで呼び出す
 
-//     .title-border:before {
-//     margin-right: 1rem;
-//     }
+    display: flex;
+    align-items: center;
     
-//     .title-border:after {
-//     margin-left: 1rem;
-//     }
-// }
-
-// @mixin side_line2 {
-//     .s1 {
-//         color: #444;
-//         font-size: 24px;
-//         display: flex;
-//         align-items: center;
-//     }
-//     .s1:before, .s1:after {
-//         content: "";
-//         flex-grow: 1;
-//         height: 1px;
-//         background: #444;
-//         display: block;
-//     }
-//     .s1:before {
-//         margin-right: .4em;
-//     }
-//     .s1:after {
-//         margin-left: .4em;
-//     }
-// }
+    &:before, &:after {
+        content: "";
+        flex-grow: 1;
+        height: 1px;
+        background: $line_color;
+        display: block;
+    }
+    &:before {
+        margin-right: .4em;
+    }
+    &:after {
+        margin-left: .4em;
+    }
+}

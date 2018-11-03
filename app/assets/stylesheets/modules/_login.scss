@@ -23,7 +23,7 @@
     width: 320px;
     border: 1px solid gray;
     margin: 0 auto;
-    padding: 5px 20px;
+    padding: 20px 26px;
     font-weight: bold;
     font-size: 14px;
   
@@ -49,6 +49,10 @@
     } 
 }
 
+  .login-remember-check_box-label {
+    font-weight: normal;
+  }
+
   .login-input {
     display: block;
     height: 25px;
@@ -60,20 +64,25 @@
     background-color: #f1ca63;
     font-size: 14px;
     margin-top: 10px;
+    font-weight: normal;
   }
 
   .login-divider {
-    text-align: center;
+    color: #767676;
+    margin-bottom: 14px;
     
-    
-    h5 {
-        // border-top: 1px solid #e7e7e7;
-        // @include side_line;
-        
-    }
     a {
-        // @include side_line2;
+        font-size: 12px;
+        font-weight: normal;
+        @include side_line(#e7e7e7);
     }
+  }
+
+  .login-button {
+    height: 25px;  //本来の大きさは29px
+    border-radius: 3px;
+    width: 320px; //本来の大きさは294px
+    background-color: #F0F0F0;
   }
   
   .weak-letter {
