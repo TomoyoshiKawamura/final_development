@@ -1,4 +1,5 @@
 @mixin clearfix {
+  // @include clearfix で呼び出し
   &::after {
     content: "";
     clear: both;

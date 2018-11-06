@@ -36,7 +36,6 @@
   }
 
   #item-search-button {
-
     padding: 10px 9px 8px 9px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
@@ -147,7 +146,8 @@
   }
 
   .nav-status-order-history {
-    line-height: 56px;
+    color: #fff;
+    margin-top: 18px;
     margin-left: 149px;
     font-size: 14px;
     float: left;
@@ -155,7 +155,8 @@
   }
 
   .nav-status-prime {
-    line-height: 56px;
+    color: #fff;
+    margin-top: 18px;
     margin-left: 25px;
     font-size: 14px;
     float: left;
@@ -163,7 +164,8 @@
   }
 
   .nav-status-cart {
-    line-height: 56px;
+    color: #fff;
+    margin-top: 18px;
     margin-left: 25px;
     font-size: 14px;
     float: left;

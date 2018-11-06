@@ -1,19 +1,110 @@
-%p#notice= notice
-%h1 Carts
-%table
-  %thead
-    %tr
-      %th User
-      %th{:colspan => "3"}
-  %tbody
-    - @carts.each do |cart|
-      %tr
-        %td= cart.user_id
-        %td= link_to 'Show', cart
-        %td= link_to 'Edit', edit_cart_path(cart)
-        %td= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Cart', new_cart_path
-
-- @items.each do |item|
-  = item.name
+.cart-contents
+  .left-cart-content
+    .subtotal-with-card-invitation
+      .subtotal-with-card-invitation--left.floatLeft
+        .subtotal-with-card-invitation--left-left.floatLeft
+          %b
+            %span.bigLetter> 2
+            \%
+          %p ポイント還元
+        .subtotal-with-card-invitation--left-right.floatRight
+          %p.subtotal-with-card-invitation--left-right__text 
+            #{current_user.name}さん、新規ご入会で5,000ポイントプレゼント
+          %p.subtotal-with-card-invitation--left-right__text Amazonクラシックカード
+          %p.subtotal-with-card-invitation--left-right__text ＊現在のカート内商品を割り引くものではありません。
+          %u.subtotal-with-card-invitation--left-right__text 正式なAmazon MasterCardが発行された次の日（最短お申込みの次の日）
+          %p.subtotal-with-card-invitation--left-right__text に加算される”入会特典ポイント”を利用した例です。
+      -# .subtotal-with-card-invitation--right.floatLeft
+      -#   .subtotal-with-card-invitation--right-left.floatLeft
+      -#     %p.subtotal-with-card-invitation--right-left__text カート内の商品合計金額:　　　　　　　　　　　　 ¥1,500
+      -#     %p.subtotal-with-card-invitation--right-left__text
+      -#       入会特典（＊）をカート内の商品に利用した例:
+      -#       %u 　　-¥5,000
+      -#     %p.subtotal-with-card-invitation--right-left__text 入会特典（＊）利用後の金額:　　　　　　　　　　　　 ¥0
+      -#     %p.subtotal-with-card-invitation--right-left__text 入会特典ポイント残高:　　　　　　　　　　　　　 ¥3,500
+      -#   .subtotal-with-card-invitation--right-right.floatRight
+      -#     %p.subtotal-with-card-invitation--right-right__text 今すぐチェック
+    .inside-of-shopping-cart
+      %h1.name-of-shopping-cart ショッピングカート
+      .provisional-getting-point
+        %p ご利用可能なAmazonポイントは100ptです
+        %p
+          この注文で
+          %span.FontColorRed> 0pt
+          獲得できます
+      - @items.each do |item|
+        .inside-of-shopping-cart-item
+          .inside-of-shopping-cart-item__image.floatLeft
+            %p 
+            - if item.item_images[0] == nil
+              = link_to image_tag('/images/no_image.png', size: '100x100'), "/items/#{item.id}"
+            - else
+              = link_to image_tag(item.item_images[0].image, size: '100x100'), "/items/#{item.id}"
+          .inside-of-shopping-cart-item__explanation.floatLeft
+            -# %p.inside-of-shopping-cart-item__explanation-title
+            -#   = item.name
+            = link_to(item_path(item), class: 'inside-of-shopping-cart-item__explanation-title', style: "text-decoration:none") do
+              = item.name
+            %p.inside-of-shopping-cart-item__explanation-kind 単行本（種類）
+            %p.inside-of-shopping-cart-item__explanation-stock 在庫あり
+            %p.inside-of-shopping-cart-item__explanation-choise 削除  ｜  あとで買う
+          .inside-of-shopping-cart-item__price.floatLeft
+            %p.inside-of-shopping-cart-item__price-price
+              ¥ #{item.price.to_s(:delimited)}
+            %p.inside-of-shopping-cart-item__price-point
+              ポイント：
+              %span.FontColorRed 0pt
+          .inside-of-shopping-cart-item__amount.floatLeft
+            %input.inside-of-shopping-cart-item__amount-box{:max => "10", :min => "1", :name => "number", :type => "number", :value => "1"}/
+      .inside-of-shopping-cart-item__sub-total-price
+        .inside-of-shopping-cart-item__sub-total-price-main.floatRight
+          %p
+            小計（#{@items.length}点）:
+            %span.FontColorRed
+              ¥ #{@items.sum { |hash| hash[:price]}.to_s(:delimited)}
+          %p
+            この注文での獲得ポイント:
+            %span.FontColorRed 0pt
+        %p.inside-of-shopping-cart-item__sub-total-price-explanation Amazon.co.jp での商品価格や在庫状況は変更される場合があります。カートに追加した時と在庫状況や価格が異なることがあります。カート内で表示されている価格は最新の価格となります。未登録のAmazonギフト券やクーポンは、お支払い方法選択画面や注文確定画面で入力できます。
+  .right-cart-content
+    .right-cart-content__upper
+      .inside-of-shopping-cart-item__sub-total-price-main.floatRight
+        %p.inside-of-shopping-cart-item__sub-total-price-main-price
+          小計（#{@items.length}点）:
+          %span.FontColorRed
+            //カートの合計金額を表示
+            ¥ #{@items.sum { |hash| hash[:price]}.to_s(:delimited)}
+        %p
+          この注文での獲得ポイント:
+          %span.FontColorRed 0pt
+      %input.right-cart-content__upper-purchase-btn{:type => "submit", :value => "レジに進む"}/
+    .right-cart-content__lower
+      %h1 最近の履歴に含まれている商品を買った人は、こんな商品も買っています：
+      .right-cart-content__lower-item
+        .right-cart-content__lower-item-image
+          image
+        .right-cart-content__lower-item-explanation
+          %p.right-cart-content__lower-item-explanation-name item-name
+          %p.right-cart-content__lower-item-explanation-price.FontColorRed ¥1,980
+          %input.right-cart-content__lower-item-explanation-btn{:type => "submit", :value => "カートに入れる"}/
+      .right-cart-content__lower-item
+        .right-cart-content__lower-item-image
+          image
+        .right-cart-content__lower-item-explanation
+          %p.right-cart-content__lower-item-explanation-name item-name
+          %p.right-cart-content__lower-item-explanation-price.FontColorRed ¥1,980
+          %input.right-cart-content__lower-item-explanation-btn{:type => "submit", :value => "カートに入れる"}/
+      .right-cart-content__lower-item
+        .right-cart-content__lower-item-image
+          image
+        .right-cart-content__lower-item-explanation
+          %p.right-cart-content__lower-item-explanation-name item-name
+          %p.right-cart-content__lower-item-explanation-price.FontColorRed ¥1,980
+          %input.right-cart-content__lower-item-explanation-btn{:type => "submit", :value => "カートに入れる"}/
+      .right-cart-content__lower-item
+        .right-cart-content__lower-item-image
+          image
+        .right-cart-content__lower-item-explanation
+          %p.right-cart-content__lower-item-explanation-name item-name
+          %p.right-cart-content__lower-item-explanation-price.FontColorRed ¥1,980
+          %input.right-cart-content__lower-item-explanation-btn{:type => "submit", :value => "カートに入れる"}/
