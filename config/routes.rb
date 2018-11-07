@@ -14,8 +14,14 @@ Rails.application.routes.draw do
   resources :carts do
     collection do
       get 'buy'
+      get 'submit_order' #仮置き
     end
   end
+
+    # member do
+    #   get 'submit_order'
+    # end
+  # end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

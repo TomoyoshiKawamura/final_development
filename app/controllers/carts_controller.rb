@@ -1,12 +1,12 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_login_screen, only: [:index]
 
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    # @carts = Cart.all
     @items = current_user.cart.items.includes(:cart_items).order("cart_items.id ASC")
-    # binding.pry
   end
 
   # GET /carts/1
@@ -63,6 +63,22 @@ class CartsController < ApplicationController
     end
   end
 
+  def buy
+    render layout: false #購入確認画面ではヘッダーとフッター表示しない
+    @items = current_user.cart.items.includes(:cart_items).order("cart_items.id ASC")
+    # binding.pry
+  end
+
+  def submit_order
+    render layout: false #購入完了画面ではヘッダーとフッター表示しない
+    @items = current_user.cart.cart_items  
+    @items.each do |item|
+      item.delete
+    end
+    # @items.delete_all()
+    # binding.pry
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
@@ -72,5 +88,9 @@ class CartsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
       params.require(:cart).permit(:user_id)
+    end
+
+    def move_to_login_screen
+      redirect_to new_user_session_path unless user_signed_in?
     end
 end
