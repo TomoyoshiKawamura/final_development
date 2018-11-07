@@ -41,8 +41,6 @@
             - else
               = link_to image_tag(item.item_images[0].image, size: '100x100'), "/items/#{item.id}"
           .inside-of-shopping-cart-item__explanation.floatLeft
-            -# %p.inside-of-shopping-cart-item__explanation-title
-            -#   = item.name
             = link_to(item_path(item), class: 'inside-of-shopping-cart-item__explanation-title') do
               = item.name
             %p.inside-of-shopping-cart-item__explanation-kind 単行本（種類）
@@ -67,17 +65,18 @@
             %span.FontColorRed 0pt
         %p.inside-of-shopping-cart-item__sub-total-price-explanation Amazon.co.jp での商品価格や在庫状況は変更される場合があります。カートに追加した時と在庫状況や価格が異なることがあります。カート内で表示されている価格は最新の価格となります。未登録のAmazonギフト券やクーポンは、お支払い方法選択画面や注文確定画面で入力できます。
   .right-cart-content
-    .right-cart-content__upper
-      .inside-of-shopping-cart-item__sub-total-price-main.floatRight
-        %p.inside-of-shopping-cart-item__sub-total-price-main-price
-          小計（#{@items.length}点）:
-          %span.FontColorRed
-            //カートの合計金額を表示
-            ¥ #{@items.sum { |hash| hash[:price]}.to_s(:delimited)}
-        %p
-          この注文での獲得ポイント:
-          %span.FontColorRed 0pt
-      %input.right-cart-content__upper-purchase-btn{type: "submit", value: "レジに進む", onclick: "location.href='/carts/buy'"}/
+    - if @items.length != 0
+      .right-cart-content__upper
+        .inside-of-shopping-cart-item__sub-total-price-main.floatRight
+          %p.inside-of-shopping-cart-item__sub-total-price-main-price
+            小計（#{@items.length}点）:
+            %span.FontColorRed
+              //カートの合計金額を表示
+              ¥ #{@items.sum { |hash| hash[:price]}.to_s(:delimited)}
+          %p
+            この注文での獲得ポイント:
+            %span.FontColorRed 0pt
+        %input.right-cart-content__upper-purchase-btn{type: "submit", value: "レジに進む", onclick: "location.href='/carts/buy'"}/
     .right-cart-content__lower
       %h1 最近の履歴に含まれている商品を買った人は、こんな商品も買っています：
       .right-cart-content__lower-item

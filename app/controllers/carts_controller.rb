@@ -7,6 +7,7 @@ class CartsController < ApplicationController
   def index
     # @carts = Cart.all
     @items = current_user.cart.items.includes(:cart_items).order("cart_items.id ASC")
+    # binding.pry
   end
 
   # GET /carts/1
@@ -71,8 +72,8 @@ class CartsController < ApplicationController
 
   def submit_order
     render layout: false #購入完了画面ではヘッダーとフッター表示しない
-    @items = current_user.cart.cart_items  
-    @items.each do |item|
+    items = current_user.cart.cart_items  
+    items.each do |item|
       item.delete
     end
     # @items.delete_all()
