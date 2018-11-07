@@ -5,7 +5,7 @@ class CartsController < ApplicationController
   # GET /carts.json
   def index
     @carts = Cart.all
-    @items = current_user.cart.items
+    @items = current_user.cart.items.includes(:cart_items).order("cart_items.id ASC")
     # binding.pry
   end
 
