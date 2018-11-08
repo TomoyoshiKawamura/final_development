@@ -43,8 +43,8 @@
     padding: 10px 9px 8px 9px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
-    background-color: #f3a847;
-    border-color: #f3a847;
+    border-color: #febd69;
+    background-color: #febd69;
   }
 
   .nav-belt-right {
@@ -52,6 +52,13 @@
     width:  28%;
     float: left;
     background-color: #232f3e;
+    position: relative;
+
+    img {
+      margin-top: 9px;
+      position: absolute;
+      right: 0;
+    }
   }
 
 
