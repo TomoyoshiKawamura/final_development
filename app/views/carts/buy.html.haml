@@ -1,2 +1,106 @@
-購入確認画面です！
-= link_to "購入", submit_order_carts_path
+.confirmation
+  .confirmation__description
+    .confirmation__description--amazon 
+      = image_tag('https://images-fe.ssl-images-amazon.com/images/G/09/x-locale/checkout/confirm-banner._CB382237590_.gif')
+    .confirmation__description--order 注文内容を確認・変更する
+    %p.confirmation__description--explanatory
+      下の「注文を確定する」ボタンを押してご注文いただくことで、お客様は当サイトの<a class="a-link" href="">プライバシー規約</a> および<a class="a-link" href="">利用規約</a> に同意の上、商品をご注文されたことになります。<br><br>Amazonマーケットプレイスの商品をご注文された場合、お客様は出品者の返品・交換の条件およびプライバシーポリシー、その他の販売条件、および一部の出品者から商品やサービスのご案内が届くことについても同意されたことになります。国内外の出品者の会社情報および所在並びに各条件・ポリシーの詳細は、出品者のページでご確認ください。<br><br>Amazonマーケットプレイスの商品を購入する場合は、所定の<a class="a-link" href="">配送料</a>がかかります。「注文を確定する」ボタンをクリックする前に、<a class="a-link" href="">配送料</a>と注文合計をご確認ください。
+  .confirmation__address-payment
+    .confirmation__address-payment__address
+      .confirmation__address-payment__address--bold
+        お届け先住所
+      %a.a-link{:href => ""}
+        変更
+      %div
+        = current_user.name
+        %br>/
+        785-0695
+        %br>/
+        高知県 高岡郡 檮原町 26-9
+        %br>/
+        電話番号: 08022371875
+    .confirmation__address-payment__payment
+      .confirmation__address-payment__payment--bold
+        支払い方法
+      %a.a-link{:href => ""}
+        変更
+      %div
+        支払方法について
+  .contirmation__confirm
+    %input.contirmation__confirm--button{:name => "confirm", :type => "button", :value => "注文を確定する", onclick: "location.href='/carts/submit_order'"}/
+    .contirmation__confirm__money
+      .contirmation__confirm__money--content
+        注文内容
+      .contirmation__confirm__money--left
+        商品の小計：
+        %br/
+        配送料・手数料：
+        %br/
+        注文合計：
+        %br/
+        割引・手数料等：
+      .contirmation__confirm__money--rigth
+        ¥ #{@items.sum { |hash| hash[:price]}.to_s(:delimited)}
+        %br/
+        ¥ 315
+        %br/
+        ¥ #{(@items.sum { |hash| hash[:price]} + 315).to_s(:delimited)} 
+        %br/
+        ¥ -100
+        %br/
+      .contirmation__confirm__money__total
+        .contirmation__confirm__money__total--left
+          ご請求額：
+        .contirmation__confirm__money__total--rigth
+          -#  配送料・手数料、割引・手数料等はとりあえず仮置き、数字に意味は無い
+          ¥ #{(@items.sum { |hash| hash[:price]} + 315 - 100).to_s(:delimited)}
+    .confirmation__confirm__link
+      %a.a-link{:href => ""} 配送料・手数料について
+      %br/
+      %a.a-link{:href => ""} 通常配送料について
+  .confirmation__item
+    - @items.each do |item|
+      .confirmation__item__container
+        .confirmation__item--plans
+          お届け予定日:  2018年7月17日 - 2018年11月17日
+        .confirmation__item--image
+          - if item.item_images[0] == nil
+            = image_tag('/images/no_image.png', size: '60x60')
+          - else
+            = image_tag(item.item_images[0].image, size: '60x60')
+        .confirmation__item__description
+          .confirmation__item__description--name
+            = item.name
+          .confirmation__item__description--money
+            ¥ #{item.price.to_s(:delimited)}
+          -# .confirmation__item__description--stock
+          -#   在庫数
+          .confirmation__item__description--quantity
+            数量：1
+            %a.a-link-normal{:href => ""}
+              変更
+          .confirmation__item__description--sale
+            販売：
+            %a.a-link-bold{:href => ""} 
+              = item.company
+        .confirmation__item__delivery
+          .confirmation__item__delivery--subject
+            配送オプション:
+          .confirmation__item__delivery--common
+            %input{:type => "checkbox"}>/
+            通常配送 ※コンビニ・ATM・ネットバンキング・電子マネー払い可
+          .confirmation__item__delivery--quickly
+            %input{:type => "checkbox"}>/
+            お急ぎ便
+            .confirmation__item__delivery--quickly--color 　 2018/11/17 土曜日 に お届けします
+          .confirmation__item__delivery--designated
+            %input{:type => "checkbox"}>/
+            お届け日時指定便
+            %br/
+            .confirmation__item__delivery--designated--color 　 土曜日, 2018/11/17, 8:00 - 12:00
+            %br/
+            %input{:type => "button", :value => "配達時間を変更"}/
+            %br/
+            %a.a-link{:href => ""} 詳細はこちら
+  %p.confirmation__explanatory-text
+    お困りの場合当社の<a class="a-link" href="">ヘルプページ</a>または<a class="a-link" href="">カスタマーサービス</a>をご覧ください。<br><br>Amazon.co.jpに注文する商品について: [注文を確定する]ボタンをクリックすると、注文の受領を通知するEメールが送信されます。商品の購入契約は、商品の配送を通知するEメールをお送りすることで初めて完了します。<br><br>【Amazon.co.jp が販売する商品の返品について】<br>原則として、商品到着後30日以内であれば、未使用かつ未開封の商品の返品に関しては商品代金の全額をお返しします（返品不可の商品を除く）。　詳しくは<a class="a-link" href="">返品</a> をご覧ください。<br><br>【Amazon.co.jp以外の第三者出品者が販売する商品の返品について】<br>出品者の商品の返品および返金について詳しくは、<a class="a-link" href="">Amazonマーケットプレイス商品の返品について</a> をご覧ください。<br><br><a class="a-link" href="/">Amazon.co.jp に戻る</a> （注文は確定されません）

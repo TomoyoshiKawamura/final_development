@@ -65,18 +65,17 @@ class CartsController < ApplicationController
   end
 
   def buy
-    render layout: false #購入確認画面ではヘッダーとフッター表示しない
+    # render layout: false #購入確認画面ではヘッダーとフッター表示しない
     @items = current_user.cart.items.includes(:cart_items).order("cart_items.id ASC")
-    # binding.pry
   end
 
   def submit_order
-    render layout: false #購入完了画面ではヘッダーとフッター表示しない
-    items = current_user.cart.cart_items  
-    items.each do |item|
-      item.delete
-    end
-    # @items.delete_all()
+    # render layout: false #購入完了画面ではヘッダーとフッター表示しない
+    # items = current_user.cart.cart_items  
+    # items.each do |item|
+    #   item.delete
+    # end
+    # CartItem.delete_all(cart_id: current_user.cart.id)
     # binding.pry
   end
 

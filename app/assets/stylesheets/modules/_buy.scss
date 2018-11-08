@@ -1,0 +1,240 @@
+.a-link {
+    font-size: 11px;
+    text-decoration: none;
+    color: #0066c0;
+  }
+  
+  .a-link-normal {
+    font-size: 11px;
+    font-weight: normal;
+    text-decoration: none;
+    color: #0066c0;
+  }
+  
+  .a-link-bold {
+    font-weight: bold;
+    text-decoration: none;
+    color: #0066c0;
+  }
+  
+  
+  
+  .confirmation {
+    max-width: 1150px;
+    min-width: 996px;
+    padding: 20px, 24px;
+    margin: 0 auto;
+    font-size: 13px;
+    line-height: 19px;
+    color: #333;
+    @include clearfix; //今の所必要無いけど念のため
+  }
+  
+  .confirmation__description {
+    height:100%;
+    width: 100%;
+  }
+  
+  .confirmation__description--amazon {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 22px;
+  }
+  
+  .confirmation__description--order {
+    font-size: 21px;
+    line-height: 1.3;
+    margin-bottom: 6px;
+    font-weight: bold;
+  }
+  
+  .confirmation__description--explanatory {
+    font-size: 11px;
+    line-height: 1.465;
+    margin-bottom: 10px;
+  }
+  
+  
+  
+  .confirmation__address-payment {
+    height: 100%;
+    width: calc(100% - 265px);
+    border-radius: 5px;
+    border: solid 1px;
+    border-color: #eae5e3;
+    float: left;
+  }
+  
+  .confirmation__address-payment__address {
+    width: calc(50% - 40px);
+    float: left;
+    margin: 15px 20px;
+  }
+  
+  .confirmation__address-payment__address--bold {
+    font-weight: bold;
+    float: left;
+  }
+  
+  .confirmation__address-payment__payment {
+    width: calc(50% - 40px);
+    float: left;
+    margin: 15px 20px 15px 0;
+  }
+  
+  .confirmation__address-payment__payment--bold {
+    font-weight: bold;
+    float: left;
+  }
+  
+  .contirmation__confirm {
+    height: 100%;
+    width: 250px;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: #eae5e3;
+    float: right;
+  }
+  
+  .contirmation__confirm--button {
+    width: calc(100% - 30px);
+    height: 30px;
+    margin: 15px;
+    background-color: #f1ca63;
+    border-radius: 5px;
+  }
+  
+  .contirmation__confirm__money {
+    padding: 0 20px;
+  }
+  
+  .contirmation__confirm__money--content {
+    font-weight: bold;
+  }
+  
+  .contirmation__confirm__money--left {
+    float: left;
+  }
+  
+  .contirmation__confirm__money--rigth {
+    text-align: right;
+  }
+  
+  .contirmation__confirm__money__total {
+    height: 30px;
+    margin-top: 10px;
+    padding-top: 10px;
+    font-size: 17px;
+    color: #b12704;
+    font-weight: bold;
+    border-top: solid 1px;
+    border-color: #eae5e3;
+  }
+  
+  .contirmation__confirm__money__total--left {
+    float: left;
+  }
+  
+  .contirmation__confirm__money__total--rigth{
+    float: right;
+  }
+  
+  .confirmation__confirm__link {
+    padding: 10px 20px;
+    background-color: #eae5e3;
+    border-top: solid 1px;
+    font-size: 11px;
+    line-height: 2;
+    border-color: #eae5e3;
+  }
+  
+  .confirmation__item {
+    width: calc(100% - 265px);
+    border-radius: 5px;
+    border: solid 1px;
+    border-color: #eae5e3;
+    float: left;
+    @include clearfix;
+  }
+
+  .confirmation__item {
+    margin-top: 10px;
+  }
+
+  .confirmation__item__container {
+    height: 100%;
+    width: calc(100% - 265px);
+    float: left;
+    margin-top: 10px;
+  }
+  
+  .confirmation__item--plans {
+    font-size: 17px;
+    padding: 15px 20px;
+    color: #e60033;
+    font-weight: bold;
+  }
+  
+  .confirmation__item--image {
+    height: 60px;
+    width: 60px;
+    float: left;
+    background-color: red;
+    margin: 0 20px;
+  }
+  
+  .confirmation__item__description {
+    height: 100%;
+    width: calc(50% - 100px);
+    float: left;
+  }
+  
+  .confirmation__item__description--name {
+    font-weight: bold;
+  }
+  
+  .confirmation__item__description--money {
+    font-weight: bold;
+    color: #b12704;
+  }
+  
+  .confirmation__item__description--quantity {
+    font-weight: bold;
+  }
+  
+  .confirmation__item__description--sale {
+    color: gray;
+  }
+  
+  .confirmation__item__delivery {
+    height: 100%;
+    width: calc(50% - 100px);
+    float: left;
+    margin-left: 70px;
+  }
+  
+  .confirmation__item__delivery--subject {
+    font-weight: bold;
+  }
+  
+  .confirmation__item__delivery--quickly--color {
+    color: green;
+  }
+  
+  .confirmation__item__delivery--designated--color {
+    color: green;
+  }
+  
+  .confirmation__item__delivery--designated {
+    padding-bottom: 15px;
+  }
+  
+  .confirmation__explanatory-text {
+    height: 100%;
+    width: 100%;
+    float: left;
+    font-size: 11px;
+    line-height: 1.465;
+    color: gray;
+  }
+  

@@ -8,7 +8,7 @@
             \%
           %p ポイント還元
         .subtotal-with-card-invitation--left-right.floatRight
-          %p.subtotal-with-card-invitation--left-right__text 
+          %p.subtotal-with-card-invitation--left-right__text
             #{current_user.name}さん、新規ご入会で5,000ポイントプレゼント
           %p.subtotal-with-card-invitation--left-right__text Amazonクラシックカード
           %p.subtotal-with-card-invitation--left-right__text ＊現在のカート内商品を割り引くものではありません。
@@ -35,7 +35,7 @@
       - @items.each do |item|
         .inside-of-shopping-cart-item
           .inside-of-shopping-cart-item__image.floatLeft
-            %p 
+            %p
             - if item.item_images[0] == nil
               = link_to image_tag('/images/no_image.png', size: '100x100'), "/items/#{item.id}"
             - else
