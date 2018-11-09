@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_login_screen, only: [:index]
+  before_action :move_to_login_screen, only: [:index, :buy, :submit_order]
 
   # GET /carts
   # GET /carts.json
@@ -70,12 +70,13 @@ class CartsController < ApplicationController
   end
 
   def submit_order
-    # render layout: false #購入完了画面ではヘッダーとフッター表示しない
     # items = current_user.cart.cart_items  
     # items.each do |item|
     #   item.delete
     # end
     # CartItem.delete_all(cart_id: current_user.cart.id)
+    @recommend_items = Item.order("RAND()").limit(4)
+    @another_user_items = Item.order("RAND()").limit(5)
     # binding.pry
   end
 

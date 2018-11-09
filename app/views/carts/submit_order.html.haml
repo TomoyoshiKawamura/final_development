@@ -1,2 +1,59 @@
-購入完了です！
-= link_to "トップへ", root_path
+.complete
+  .complete__frame
+    .complete__frame__check
+      ✓
+    .complete__frame__thank
+      ありがとうございます。　注文が確定されました。
+    .complete__frame__details
+      .complete__frame__details__description
+        注文内容と配送状況についてはEメールまたは
+        %a{:href => ""}> メッセージセンター
+        でお知らせをご確認ください。
+        %br/
+        %br/
+      .complete__frame__details__order-number
+        注文番号: 000-00000000-0000000
+      .complete__frame__details__purchase-details
+        ・商品名… を次のお届け先へ発送します
+        %a{:href => ""} 
+          = current_user.name
+        発送元: 発送会社 お届け予定日:
+        %b 2018年7月17日 - 2018年11月17日
+      .complete__frame__details__link
+        %a{:href => ""}> 注文詳細を見る（注文内容の変更・領収書の印刷）▶︎
+        ｜
+        %a{:href => ""}> 購入についてのよくある質問
+        |
+        %a{:href => ""} Amazonポイントを確認する
+
+.recommend-item
+  %p こんな商品もおすすめです
+  .recommend-container
+    - @recommend_items.each do |recommend_item|
+      .recommend-item-container
+        - if recommend_item.item_images[0] == nil
+          = link_to image_tag('/images/no_image.png', size: '150x150'), "/items/#{recommend_item.id}"
+        - else
+          = link_to image_tag(recommend_item.item_images[0].image, size: '150x150'), "/items/#{recommend_item.id}"
+        = link_to(item_path(recommend_item), class: 'recommend-item-name') do
+          = recommend_item.name
+        .recommend-item-company
+          = recommend_item.company
+        .recommend-item-price
+          ¥ #{recommend_item.price.to_s(:delimited)}
+    = link_to image_tag('/images/kochike3.jpg', size: '200x400'), "http://www.kochike.pref.kochi.lg.jp/~top/"
+.another-user-item
+  %p 他のユーザーはこんな商品を購入されています
+  .another-user-container
+    - @another_user_items.each do |another_user_item|
+      .another-user-item-container
+        - if another_user_item.item_images[0] == nil
+          = link_to image_tag('/images/no_image.png', size: '150x150'), "/items/#{another_user_item.id}"
+        - else
+          = link_to image_tag(another_user_item.item_images[0].image, size: '150x150'), "/items/#{another_user_item.id}"
+        = link_to(item_path(another_user_item), class: 'another-user-item-name') do
+          = another_user_item.name
+        .another-user-item-company
+          = another_user_item.company
+        .another-user-item-price
+          ¥ #{another_user_item.price.to_s(:delimited)}
