@@ -11,6 +11,8 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @item = Item.find(params[:id])
+    @item_images = @item.item_images.includes(:item)
   end
 
   # GET /items/new

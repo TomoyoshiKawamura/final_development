@@ -1,20 +1,22 @@
 .item {
   height: 100%;
-  width: 100vw;
+  width: 100%;
   background-color: white;
+  overflow-x: hidden;
   @import "item/genre";
   @include clearfix;
 
   &__frame {
-  background-color: gray;
   height: 100%;
-  width: calc(100% - 250px);
+  width: calc(100% - 270px);
   float: left;
     @import "item/image";
     @import "item/product"
   }
 
   @import "item/order";
+  @import "item/comparison";
+  @import "item/reviews"
 }
 
 .clearfix::after {

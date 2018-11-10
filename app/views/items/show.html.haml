@@ -1,72 +1,9 @@
 .item
   .item__genre
+    DIY・工具・ガーデン › 大工道具・用品 › ハンマー・くぎ抜き工具 › ハンマー・かなづち › 木鎚
   .item__frame
-    .item__frame__image
-      .item__frame__image__list
-        .item__frame__image__list__picture
-          画像
-        画像
-        %br>/
-        一覧
-      .item__frame__image__preview
-        プレビュー
-    .item__frame__product
-      .item__frame__product__name
-        商品名
-      .item__frame__product__seller
-        出品者
-      .item__frame__product__star
-        星
-      .item__frame__product__star-count
-        ○件のカスタマーレビュー｜○人が質問に回答しました
-      .item__frame__product__price
-        価格：¥ 100
-      .item__frame__product__information
-        商品情報
-        %br/
-        商品情報
-        %br/
-        商品情報
-        %br/
-        商品情報
-  .item__order
-    .item__order__share
-      シェア
-    .item__order__frame
-      .item__order__frame__price ¥ 100
-      .item__order__frame__delivery
-        対象商品¥ 2,000以上の注文で通常配送無料 詳細
-        %br/
-        10/20 土曜日 にお届けするには、今から6 時間 36 分以内にお急ぎ便を選択して注文を確定してください（Amazonプライム会員は無料） 詳細を見る
-        %br/
-        在庫あり。 在庫状況について
-        %br/
-        この商品は、Amazon.co.jp が販売、発送します。
-      .item__order__frame__cart
-        .item__order__frame__cart--image
-        %input.item__order__frame__cart--button{:name => "cart", :type => "button", :value => "カートに入れる"}/
-      .item__order__frame__buy
-        %input.item__order__frame__buy__button{:name => "buy", :type => "button", :value => "今すぐ買う"}/
-        .item__order__frame__buy__image
-      .item__order__frame__address
-        .item__order__frame__address--image
-      .item__order__frame__text
-        こちらからもご購入いただけます
-      .item__order__frame__price
-        ¥ 100
-        %input.item__order__frame__price--button{:name => "cart", :type => "submit", :value => "カートに入れる", action: "/carts/add_item/", method: :get};/
-      .item__order__frame__delivery
-        配送情報
-        = succeed "\u{914d}\u{9001}\u{60c5}\u{5831}" do
-          %br/
-        = succeed "\u{914d}\u{9001}\u{60c5}\u{5831}" do
-          %br/
-        = succeed "\u{914d}\u{9001}\u{60c5}\u{5831}" do
-          %br/
-
-- if @item.item_images[0] == nil
-  = link_to image_tag('/images/no_image.png', size: '200x200'), "/items/#{@item.id}"
-- else
-  = link_to image_tag(@item.item_images[0].image, size: '200x200'), "/items/#{@item.id}"
-
-= link_to 'カートに入れる', "/items/#{@item.id}/add_item", method: :post
+    = render "items/item/image"
+    = render partial: "items/item/product"
+  = render partial: "items/item/order"
+  = render partial: "items/item/comparison"
+  = render partial: "items/item/reviews"
