@@ -1,10 +1,11 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
-  # before_action :setup_cart_item!, only: [:add_item, :update_item, :delete_item]
+  before_action :move_to_login_screen, only: [:index, :buy, :submit_order]
+
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    @items = current_user.cart.items.includes(:cart_items).order("cart_items.id ASC")
   end
 
   # GET /carts/1
@@ -74,7 +75,28 @@ class CartsController < ApplicationController
     end
   end
 
-  # private
+
+  def buy
+    # render layout: false #購入確認画面ではヘッダーとフッター表示しない
+    @items = current_user.cart.items.includes(:cart_items).order("cart_items.id ASC")
+  end
+
+  def submit_order
+    @order_item = current_user.cart.items.includes(:cart_items).first
+
+    items = current_user.cart.cart_items
+    items.each do |item| #あまり良い実装方法では無い
+      item.delete
+    end
+    # CartItem.delete_all(cart_id: current_user.cart.id) こんな感じでまとめて消したい
+
+    @recommend_items = Item.order("RAND()").limit(4)
+    @another_user_items = Item.order("RAND()").limit(5)
+    # binding.pry
+  end
+
+  private
+
     # Use callbacks to share common setup or constraints between actions.
     
     # def set_cart
@@ -82,12 +104,13 @@ class CartsController < ApplicationController
     # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    # def cart_params
-    #   params.require(:cart).permit(:user_id)
-    # end
-    
-    # def setup_cart_item!
-    #   @cart_item = current_cart.cart_items.find_by(item_id: params[:item_id])
-    # end
+
+    def cart_params
+      params.require(:cart).permit(:user_id)
+    end
+
+    def move_to_login_screen
+      redirect_to new_user_session_path unless user_signed_in?
+    end
 
 end

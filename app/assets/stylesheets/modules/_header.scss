@@ -10,6 +10,10 @@
     background-color: #232f3e;
   }
 
+  .nav-belt-left a {
+    text-decoration: none;
+  }
+
   .amazon-logo {
     font-size: 26px;
     font-family: monospace;
@@ -36,12 +40,11 @@
   }
 
   #item-search-button {
-
     padding: 10px 9px 8px 9px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
-    background-color: #f3a847;
-    border-color: #f3a847;
+    border-color: #febd69;
+    background-color: #febd69;
   }
 
   .nav-belt-right {
@@ -49,6 +52,13 @@
     width:  28%;
     float: left;
     background-color: #232f3e;
+    position: relative;
+
+    img {
+      margin-top: 9px;
+      position: absolute;
+      right: 0;
+    }
   }
 
 
@@ -147,7 +157,8 @@
   }
 
   .nav-status-order-history {
-    line-height: 56px;
+    color: #fff;
+    margin-top: 18px;
     margin-left: 149px;
     font-size: 14px;
     float: left;
@@ -155,7 +166,8 @@
   }
 
   .nav-status-prime {
-    line-height: 56px;
+    color: #fff;
+    margin-top: 18px;
     margin-left: 25px;
     font-size: 14px;
     float: left;
@@ -163,9 +175,11 @@
   }
 
   .nav-status-cart {
-    line-height: 56px;
+    color: #fff;
+    margin-top: 18px;
     margin-left: 25px;
     font-size: 14px;
     float: left;
     font-weight: bold;
+    text-decoration: none;
   }

@@ -1,0 +1,145 @@
+
+.complete {
+    height: 100%;
+    width: calc(100% - 40px);
+    margin: 20px;
+    border: solid 1px green;
+    border-radius: 5px;
+  }
+  
+  .complete__frame {
+    border: solid 5px #bfe6a8;
+  }
+  
+  .complete__frame__check {
+    width: 30px;
+    padding: 10px 10px 0 10px;
+    font-size: 22px;
+    font-weight: bold;
+    color: green;
+    float: left;
+  }
+  
+  .complete__frame__thank {
+    padding-top: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    color: green;
+  }
+  
+  .complete__frame__details {
+    font-size: 13px;
+    padding-left: 50px;
+  }
+  
+  .complete__frame__details__description {
+
+    a {
+      color: #0066c0;
+    }
+  }
+  
+  .complete__frame__details__order-number {
+    font-weight: bold;
+  }
+  
+  .complete__frame__details__purchase-details {
+
+    a {
+      color: #0066c0;
+      text-decoration: none;
+    }
+  }
+  
+  .complete__frame__details__link {
+    padding-bottom: 30px;
+
+    a {
+      color: #0066c0;
+      text-decoration: none;
+    }
+  }
+  
+
+  //おすすめ商品
+.recommend-item {
+  height: 100%;
+  width: calc(100% - 40px);
+  margin: 20px;
+  p {
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+  }
+
+.recommend-container {
+    @include clearfix;
+}
+
+.recommend-item-container {
+    height: 350px;
+    width: 240px;
+    padding: 15px 15px 27px 27px;
+    float: left;
+}
+
+.recommend-item-name {
+    font-size: 15px;
+    color: #0066c0;
+    display: block;
+    text-decoration: none;
+}
+
+.recommend-item-company {
+    font-size: 12px;
+    color: #555; 
+}
+
+.recommend-item-price {
+    font-size: 14px;
+    color: #B12704;   
+}
+
+.banner-div {
+  
+}
+
+
+//他ユーザー商品
+.another-user-item {
+  height: 100%;
+  width: calc(100% - 40px);
+  margin: 20px;
+  p {
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+}
+
+.another-user-container {
+  @include clearfix;
+}
+
+.another-user-item-container {
+  height: 350px;
+  width: 230px;
+  padding: 15px 15px 27px 27px;
+  float: left;
+}
+
+.another-user-item-name {
+  font-size: 15px;
+  color: #0066c0;
+  display: block;
+  text-decoration: none;
+}
+
+.another-user-item-company {
+  font-size: 12px;
+  color: #555; 
+}
+
+.another-user-item-price {
+  font-size: 14px;
+  color: #B12704;   
+}
