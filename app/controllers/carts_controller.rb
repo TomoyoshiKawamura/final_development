@@ -84,6 +84,10 @@ class CartsController < ApplicationController
   def submit_order
     @order_item = current_user.cart.items.includes(:cart_items).first
 
+    if @order_item == nil
+      redirect_to root_path
+    end
+
     items = current_user.cart.cart_items
     items.each do |item| #あまり良い実装方法では無い
       item.delete
