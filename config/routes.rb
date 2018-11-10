@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # resources :reviews
   # resources :item_images
   resources :items do
+    resources :reviews
     collection do
       get 'search'
     end
