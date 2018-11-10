@@ -4,4 +4,7 @@
       .item__frame__image__list__picture
         = image_tag(images.image, size: '40x40')
   .item__frame__image__preview
-    = image_tag(src="https://images-na.ssl-images-amazon.com/images/I/51hWJNKH4SL._SL1200_.jpg", class: "example")
+    - if @item.item_images[0] == nil
+      = link_to image_tag('/images/no_image.png', class: "example"), "/items/#{@item.id}"
+    - else
+      = link_to image_tag(@item.item_images[0].image, class: "example"), "/items/#{@item.id}"
