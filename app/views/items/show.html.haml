@@ -54,7 +54,7 @@
         こちらからもご購入いただけます
       .item__order__frame__price
         ¥ 100
-        %input.item__order__frame__price--button{:name => "cart", :type => "button", :value => "カートに入れる"}/
+        %input.item__order__frame__price--button{:name => "cart", :type => "submit", :value => "カートに入れる", action: "/carts/add_item/", method: :get};/
       .item__order__frame__delivery
         配送情報
         = succeed "\u{914d}\u{9001}\u{60c5}\u{5831}" do
@@ -63,3 +63,10 @@
           %br/
         = succeed "\u{914d}\u{9001}\u{60c5}\u{5831}" do
           %br/
+
+- if @item.item_images[0] == nil
+  = link_to image_tag('/images/no_image.png', size: '200x200'), "/items/#{@item.id}"
+- else
+  = link_to image_tag(@item.item_images[0].image, size: '200x200'), "/items/#{@item.id}"
+
+= link_to 'カートに入れる', "/items/#{@item.id}/add_item", method: :post

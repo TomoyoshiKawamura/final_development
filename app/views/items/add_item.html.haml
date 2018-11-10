@@ -8,21 +8,14 @@
       %li.small-category eeeee
       %li.small-category fffff
 
+  / - current_user.cart.items.each do |item|
   .subtotal-in-cart
     .status-message
       %p.fas.fa-check 追加されました
     .subtotal-detail
-      %p.price-sofar カートの小計（商品1点）：¥ 2,200
-      %p.shipping-explanation この注文での獲得ポイント：0pt
-      %p.shipping-explanation Amazon.co.jpが発送する対象商品を¥300分追加すると通常配送無料。詳細
-    .two-buttons
-      %input.edit-cart{:type => "submit", :value => "カートの編集"}/
-      %input.to-payment{:type => "submit", :value => "レジに進む"}/
-  .subtotal-in-cart
-    .status-message
-      %p.fas.fa-check 追加されました
-    .subtotal-detail
-      %p.price-sofar カートの小計（商品1点）：¥ 2,200
+      %p.price-sofar
+        カートの小計（商品#{@items.length}点）：
+        ¥ #{@items.sum { |hash| hash[:price]}.to_s(:delimited)}
       %p.shipping-explanation この注文での獲得ポイント：0pt
       %p.shipping-explanation Amazon.co.jpが発送する対象商品を¥300分追加すると通常配送無料。詳細
     .two-buttons
