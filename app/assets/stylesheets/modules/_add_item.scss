@@ -1,0 +1,133 @@
+
+  .cart-status {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    @include clearfix;
+  }
+
+  .certain-category {
+    width: 100%;
+    height: 40px;
+    background-color: #EEEEEE;
+    line-height: 40px;
+    font-size: 13px;
+    padding-left: 6px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+
+  .selected-category {
+    float: left;
+    font-weight: bold;
+  }
+
+  .small-category {
+    float: left;
+    padding-left: 8px;
+  }
+
+  .subtotal-in-cart {
+    border: 1px solid #EEEEEE;
+    width: 800px;
+    margin: 10px auto;
+    height: 55px;
+    background-color: #DDDDDD;
+    clear: both;
+
+ }
+
+  .status-message {
+    background-color: #EEEEEE;
+    float: left;
+    padding: 0 6px;
+    font-size: 14px;
+  }
+  .fas.fa-check {
+    line-height: 55px;
+  }
+
+  .subtotal-detail {
+    border-left: 1px solid #EEEEEE;
+    float: left;
+    padding: 0 10px;
+  }
+
+  .price-sofar {
+    font-size: 14px;
+  }
+  
+  .shipping-explanation {
+    font-size: 11px;
+  }
+
+  .two-buttons {
+    float: left;
+  }
+  .edit-cart {
+    height: 40px;
+    background-color: #EEEEEE;
+    width: 110px;
+    border-radius: 10px;
+    margin-top: 8px;
+    font-size: 13px;
+  }
+
+  .to-payment {
+    height: 40px;
+    background-color: #FF9966;
+    width: 160px;
+    border-radius: 10px;
+    margin-right: 10px;
+    font-size: 13px;
+  }
+
+  .card-register-details {
+    height: 100%;
+    width: 600px;
+    margin: 10px auto;
+    border: 1px solid lightblue;
+    position: relative;
+  }
+
+  .card-benefits {
+    display: inline-block;
+   }
+
+  .card-benefit {
+    font-size: 13px;
+    padding: 5px 0 0 60px;
+   }
+
+  .card-benefit-lower {
+    display: inline-block;
+  }
+  .card-detail-to-register {
+    background-color: #EEEEEE;
+    border-radius: 10px;
+    width: 120px;
+    font-size: 12px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+
+  .purchased-item-detail {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .related-recommendations {
+    width: 1100px;
+    height: 300px;
+    background-color: white;
+    margin: 40px auto;
+}
+
+  .related-recommendation {
+    height: 250px;
+    width: 21%;
+    background-color: white;
+    float: left;
+    margin: 25px 20px 25px 20px;
+  }
