@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_login_screen, only: [:add_item]
 
   # GET /items
   # GET /items.json
@@ -80,4 +81,9 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:name, :price, :company, :explanation)
     end
+
+    def move_to_login_screen
+      redirect_to new_user_session_path unless user_signed_in?
+    end
+
 end
