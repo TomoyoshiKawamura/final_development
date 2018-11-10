@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  # before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   # GET /items
   # GET /items.json
@@ -65,7 +65,13 @@ class ItemsController < ApplicationController
     # 検索フォームのキーワードをあいまい検索する
     @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
-
+  
+  def add_item
+    CartItem.create(cart_id: current_user.cart.id, item_id: params[:id])
+    @recommend_items = Item.order("RAND()").limit(4)
+    @items = current_user.cart.items.includes(:cart_items)
+  end
+  
   private
     def set_item
       @item = Item.find(params[:id])
