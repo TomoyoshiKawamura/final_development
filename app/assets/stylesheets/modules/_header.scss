@@ -40,11 +40,19 @@
   }
 
   #item-search-button {
-    padding: 10px 9px 8px 9px;
+    padding: 24px 43px 12px 9px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     border-color: #febd69;
     background-color: #febd69;
+    position: relative;
+
+    .icon {
+      font-size: 22px;
+      left: 15px;
+      top: 8px;
+      position: absolute;
+    }
   }
 
   .nav-belt-right {
@@ -78,6 +86,7 @@
   .nav-main-left-address-icon {
     font-size: 22px;
     float: left;
+    margin: 0 10px;
   }
 
   .nav-main-left-address {
@@ -172,6 +181,7 @@
     font-size: 14px;
     float: left;
     font-weight: bold;
+    position: relative;
   }
 
   .nav-status-cart {

@@ -79,14 +79,14 @@ class CartsController < ApplicationController
   def buy
     # render layout: false #購入確認画面ではヘッダーとフッター表示しない
     @items = current_user.cart.items.includes(:cart_items).order("cart_items.id ASC")
+    # binding.pry
   end
 
   def submit_order
     @order_item = current_user.cart.items.includes(:cart_items).first
 
-    if @order_item == nil
-      redirect_to root_path
-    end
+    #購入完了画面でリロードするとエラーになるのでトップページに飛ばす
+    redirect_to root_path if @order_item == nil
 
     items = current_user.cart.cart_items
     items.each do |item| #あまり良い実装方法では無い
