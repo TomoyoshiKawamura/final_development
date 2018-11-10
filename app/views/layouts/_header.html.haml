@@ -2,20 +2,22 @@
   %header.header
     .nav-belt
       .nav-belt-left
-        %a{:href => "/", :style => "text-decoration:none"}
+        %a{href: "/"}
           %span.amazon-logo amazon
-          %span.amazon-logo-side .co.jp
+          %span.amazon-logo-side> .co.jp
       .nav-belt-center
         = form_tag( search_items_path, method: :get) do
-          %input#item-search-text{:name => "keyword", :type => "text", :value => ""}/
-          %button#item-search-button
-            %span 🔍
+          %input#item-search-text{name: "keyword", type: "text", value: ""}<
+            %button#item-search-button
+              -# = fa_icon 'fas fa-search', class: 'icon'
+              %span 🔍
       .nav-belt-right
-        右 プライム会員  ロゴ
+        = image_tag('/images/amazon_prime_logo.png')
     .nav-main
       .nav-main-left
         - if user_signed_in?
           .nav-main-left-address-icon ●
+          -# = fa_icon 'fas fa-map-marker-alt'
           .nav-main-left-address
             .delivery-destination-name
               お届け先 #{current_user.name} さん
@@ -50,5 +52,4 @@
             注文履歴
           .nav-status-prime
             プライム
-          .nav-status-cart
-            カート
+          = link_to "カート", carts_path, class: 'nav-status-cart'
