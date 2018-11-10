@@ -5,9 +5,7 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    # @carts = Cart.all
     @items = current_user.cart.items.includes(:cart_items).order("cart_items.id ASC")
-    # binding.pry
   end
 
   # GET /carts/1
@@ -72,11 +70,12 @@ class CartsController < ApplicationController
   def submit_order
     @order_item = current_user.cart.items.includes(:cart_items).first
 
-    items = current_user.cart.cart_items  
-    items.each do |item|
+    items = current_user.cart.cart_items
+    items.each do |item| #あまり良い実装方法では無い
       item.delete
     end
-    # CartItem.delete_all(cart_id: current_user.cart.id)
+    # CartItem.delete_all(cart_id: current_user.cart.id) こんな感じでまとめて消したい
+
     @recommend_items = Item.order("RAND()").limit(4)
     @another_user_items = Item.order("RAND()").limit(5)
     # binding.pry
