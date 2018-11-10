@@ -30,18 +30,7 @@
   .related-recommendations
     - @recommend_items.each do |item|
       .related-recommendation
-        = link_to image_tag(item.item_images[0].image, size: '230x245'), "/items/#{item.id}"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        - if item.item_images[0] == nil
+          = link_to image_tag('/images/no_image.png', size: '200x200'), "/items/#{item.id}"
+        - else
+          = link_to image_tag(item.item_images[0].image, size: '200x200'), "/items/#{item.id}"
