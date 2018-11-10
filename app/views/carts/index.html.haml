@@ -26,12 +26,13 @@
       -#     %p.subtotal-with-card-invitation--right-right__text 今すぐチェック
     .inside-of-shopping-cart
       %h1.name-of-shopping-cart ショッピングカート
-      .provisional-getting-point
-        %p ご利用可能なAmazonポイントは100ptです
-        %p
-          この注文で
-          %span.FontColorRed> 0pt
-          獲得できます
+      - if @items.length != 0
+        .provisional-getting-point
+          %p ご利用可能なAmazonポイントは100ptです
+          %p
+            この注文で
+            %span.FontColorRed> 0pt
+            獲得できます
       - @items.each do |item|
         .inside-of-shopping-cart-item
           .inside-of-shopping-cart-item__image.floatLeft

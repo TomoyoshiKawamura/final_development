@@ -70,10 +70,12 @@ class CartsController < ApplicationController
   end
 
   def submit_order
-    # items = current_user.cart.cart_items  
-    # items.each do |item|
-    #   item.delete
-    # end
+    @order_item = current_user.cart.items.includes(:cart_items).first
+
+    items = current_user.cart.cart_items  
+    items.each do |item|
+      item.delete
+    end
     # CartItem.delete_all(cart_id: current_user.cart.id)
     @recommend_items = Item.order("RAND()").limit(4)
     @another_user_items = Item.order("RAND()").limit(5)

@@ -14,7 +14,9 @@
       .complete__frame__details__order-number
         注文番号: 000-00000000-0000000
       .complete__frame__details__purchase-details
-        ・商品名… を次のお届け先へ発送します
+        ・
+        = @order_item.name.truncate(25)
+        を次のお届け先へ発送します
         %a{:href => ""} 
           = current_user.name
         発送元: 発送会社 お届け予定日:
