@@ -29,7 +29,7 @@
 
   .subtotal-in-cart {
     border: 1px solid #EEEEEE;
-    width: 800px;
+    width: 850px;
     margin: 10px auto;
     height: 55px;
     background-color: #DDDDDD;
@@ -43,8 +43,9 @@
     padding: 0 6px;
     font-size: 14px;
   }
-  .fas.fa-check {
+  .fas {
     line-height: 55px;
+    color: green;
   }
 
   .subtotal-detail {
