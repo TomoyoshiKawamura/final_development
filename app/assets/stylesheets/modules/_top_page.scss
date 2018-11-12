@@ -66,11 +66,17 @@ ul {
 .items {
  width: 90%;
  height: 19%;
- background-color: #888888;
+ background-color: white;
  margin: 1px auto;
  box-sizing: border-box;
 
 }
+
+.sample{
+  display:inline-block;
+}
+
+
 
 .category {
  padding-left: 30px;
