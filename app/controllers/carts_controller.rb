@@ -1,15 +1,17 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_login_screen, only: [:index, :buy, :submit_order]
 
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    @items = current_user.cart.items.includes(:cart_items).order("cart_items.id ASC")
   end
 
   # GET /carts/1
   # GET /carts/1.json
   def show
+    @cart_items = current_cart.cart_items
   end
 
   # GET /carts/new
@@ -37,8 +39,19 @@ class CartsController < ApplicationController
     end
   end
 
+  # def update_item
+  #   @cart_item.update(quantity: params[:quantity].to_i)
+  #   redirect_to current_cart
+  # end
+
+  # def delete_item
+  #   @cart_item.destroy
+  #   redirect_to current_cart
+  # end
+
   # PATCH/PUT /carts/1
   # PATCH/PUT /carts/1.json
+  
   def update
     respond_to do |format|
       if @cart.update(cart_params)
@@ -53,6 +66,7 @@ class CartsController < ApplicationController
 
   # DELETE /carts/1
   # DELETE /carts/1.json
+  
   def destroy
     @cart.destroy
     respond_to do |format|
@@ -61,14 +75,46 @@ class CartsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cart
-      @cart = Cart.find(params[:id])
+
+  def buy
+    # render layout: false #購入確認画面ではヘッダーとフッター表示しない
+    @items = current_user.cart.items.includes(:cart_items).order("cart_items.id ASC")
+    # binding.pry
+  end
+
+  def submit_order
+    @order_item = current_user.cart.items.includes(:cart_items).first
+
+    #購入完了画面でリロードするとエラーになるのでトップページに飛ばす
+    redirect_to root_path if @order_item == nil
+
+    items = current_user.cart.cart_items
+    items.each do |item| #あまり良い実装方法では無い
+      item.delete
     end
+    # CartItem.delete_all(cart_id: current_user.cart.id) こんな感じでまとめて消したい
+
+    @recommend_items = Item.order("RAND()").limit(4)
+    @another_user_items = Item.order("RAND()").limit(5)
+    # binding.pry
+  end
+
+  private
+
+    # Use callbacks to share common setup or constraints between actions.
+    
+    # def set_cart
+    #   @cart = Cart.find(params[:id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+
     def cart_params
       params.require(:cart).permit(:user_id)
     end
+
+    def move_to_login_screen
+      redirect_to new_user_session_path unless user_signed_in?
+    end
+
 end

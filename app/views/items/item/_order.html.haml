@@ -1,0 +1,41 @@
+.item__order
+  .item__order__share
+    シェアする
+  .item__order__frame
+    .item__order__frame__price
+      ¥
+      = @item.price
+    .item__order__frame__delivery
+      %b 通常配送無料
+      %a{:href => ""}詳細
+      %br/
+      %br/
+      %b 10/20 土曜日
+      にお届けするには、今から
+      %b 6 時間 36 分
+      以内に
+      %a{:href => ""}お急ぎ便
+      を選択して注文を確定してください（
+      %a{:href => ""}Amazonプライム会員
+      は無料）
+      %a{:href => ""}詳細を見る
+      %br/
+      在庫あり。 在庫状況について
+      %br/
+      この商品は、
+      %a{:href => ""}Amazon.co.jp
+      が販売、発送します。
+
+    .item__order__frame__cart
+      .item__order__frame__cart--image
+        = link_to 'カートに入れる', "/items/#{@item.id}/add_item", method: :post
+      / %input.item__order__frame__cart--button{:name => "cart", :type => "button", :value => "カートに入れる"}/
+
+    .item__order__frame__buy
+      .item__order__frame__buy--image
+      %input.item__order__frame__buy--button{:name => "buy", :type => "button", :value => "今すぐ買う"}/
+
+    .item__order__frame__address
+      ◎
+      %a{:href => ""}田中太郎 - 000-0000 にお届け
+      .item__order__frame__address--image

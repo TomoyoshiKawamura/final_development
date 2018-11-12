@@ -1,0 +1,22 @@
+.item__frame__product
+  .item__frame__product__name
+    = @item.name
+  .item__frame__product__seller
+    = @item.company
+  .item__frame__product__star
+    星
+  .item__frame__product__star-count
+    12件のカスタマーレビュー
+  .item__frame__product__price
+    ¥
+    = @item.price
+  .item__frame__product__information
+    = @item.explanation
+    %br/
+    %a{:href => ""}もっと見る
+  .item__frame__product__comparison
+    %a{:href => ""}類似商品と比較する
+  .item__frame__product__report
+    %a{:href => ""}不正確な製品情報を報告。
+  .item__frame__product__publicity
+    = image_tag(src="https://images-fe.ssl-images-amazon.com/images/G/09/2018/x-site/monthly_deal/11/point/1142239_xsite_mdeal18_point_02_650x130._CB481770413_.jpg", class: "publicity")

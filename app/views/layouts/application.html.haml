@@ -6,9 +6,11 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.5.0/css/all.css", :integrity => "sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU", :rel => "stylesheet"}/
+
   %body
-    / サインアップ、ログイン画面の時にはヘッダーを表示しない
-    - unless request.filtered_parameters[:controller].include?('devise')
+    / サインアップ、ログイン画面、購入確認画面の時にはヘッダーとフッターを表示しない
+    - unless request.filtered_parameters[:controller].include?('devise') || request.filtered_parameters[:action].include?('buy')
       = render "layouts/header"
       = yield
       = render "layouts/footer"

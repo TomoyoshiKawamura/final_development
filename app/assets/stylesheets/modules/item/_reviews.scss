@@ -1,0 +1,41 @@
+&__reviews {
+  height: 100%;
+  width: 300px;
+  padding: 0 20px;
+  float: left;
+  &__evaluation {
+    padding: 20px 0;
+    border-bottom: solid 1px #e8e8e8;
+    font-size: 13px;
+    &__review-number {
+      font-weight: bold;
+      font-size: 21px;
+    }
+    &__stars {
+    }
+    &__graph {
+      padding: 20px 0;
+      border-bottom: solid 1px #e8e8e8;
+      &__five {
+      }
+      &__four {
+      }
+      &__three {
+      }
+      &__two {
+      }
+      &__one {
+      }
+    }
+    &__review {
+      padding-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    &__opinion {
+    }
+    &__write {
+      margin-top: 20px;
+    }
+  }
+}
