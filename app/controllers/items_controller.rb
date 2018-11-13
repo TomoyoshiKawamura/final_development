@@ -6,7 +6,9 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items1 = Item.find(Item.pluck(:id).shuffle[0..2])
-    @items_2 = Item.find(Item.pluck(:id).shuffle[0..2])
+    @items2 = Item.find(Item.pluck(:id).shuffle[0..2])
+    @items3 = Item.find(Item.pluck(:id).shuffle[0..2])
+    @items4 = Item.find(Item.pluck(:id).shuffle[0..2])
   end
 
   # GET /items/1
