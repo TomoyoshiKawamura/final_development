@@ -19,6 +19,9 @@
       この商品をレビュー
     .item__reviews__evaluation__opinion
       他のお客様にも意見を伝えましょう
-    %input.item__reviews__evaluation__write{:name => "review", :type => "button", :value => "カスタマーレビューを書く"}/
+    %a{:href => "/items/#{@item.id}/reviews/new"}
+      カスタマーレビューを書く
+    / %input.item__reviews__evaluation__write{:name => "review", :type => "submit", :value => "カスタマーレビューを書く"}/
 
-  .item__reviews__review
+  / .item__reviews__review
+  /   = render :partial => "review", :collection =>
