@@ -1,47 +1,18 @@
-/ id直打ち
+.review-detail-part
+  %p.review-detail-part--item-name 商品名：#{@item.name}
 .review-post-part
-  = form_tag("/items/1/reviews", method: :post, id: "post_review") do
-    %p.review-title-text レビュータイトル
-    %input{type: "text", class: "review-title",placeholder: "最も伝えたいポイントはなんですか？"}
-    %p.review-content-text ここにレビューを記入してください
-    %textarea{placeholder: "気に入ったこと/気に入らなかったことは何ですか？この商品をどのように使いましたか？", class: "review-content"}
-    %input{type: "text", class: "review-user",placeholder: "username"}
-    %input{type: "submit", class: "review-submit", value: "投稿"}
+  = form_for [@item, @review] do |f|
+    .review__user
+      = f.hidden_field :user_id, value: current_user.id
+      = f.hidden_field :rank, value: 5
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .review-title-text
+      レビュータイトル
+    .review-title
+      = f.text_field :title, placeholder: "最も伝えたいポイントはなんですか？"
+    .review-content-text
+      ここにレビューを記入してください
+    .review-content-text
+      = f.text_area :text, placeholder: "気に入ったこと/気に入らなかったことは何ですか？この商品をどのように使いましたか？"
+    = button_tag do
+      投稿する
