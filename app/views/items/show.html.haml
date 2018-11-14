@@ -1,9 +1,9 @@
 .item
   .item__genre
-    DIY・工具・ガーデン › 大工道具・用品 › ハンマー・くぎ抜き工具 › ハンマー・かなづち › 木鎚
   .item__frame
     = render "items/item/image"
     = render partial: "items/item/product"
   = render partial: "items/item/order"
   = render partial: "items/item/comparison"
   = render partial: "items/item/reviews"
+= link_to 'カートに入れる', "/items/#{@item.id}/add_item", method: :post
