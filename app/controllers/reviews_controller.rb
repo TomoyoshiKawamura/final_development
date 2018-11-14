@@ -26,7 +26,7 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     Review.create(review_params)
-    redirect_to controller: :items, action: :index
+    redirect_to controller: :items, action: :show, id: Item.find(params[:item_id])
     # @review = Review.new(review_params)
 
     # respond_to do |format|
