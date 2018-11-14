@@ -80,31 +80,17 @@
         %input.right-cart-content__upper-purchase-btn{type: "submit", value: "レジに進む", onclick: "location.href='/carts/buy'"}/
     .right-cart-content__lower
       %h1 最近の履歴に含まれている商品を買った人は、こんな商品も買っています：
-      .right-cart-content__lower-item
-        .right-cart-content__lower-item-image
-          image
-        .right-cart-content__lower-item-explanation
-          %p.right-cart-content__lower-item-explanation-name item-name
-          %p.right-cart-content__lower-item-explanation-price.FontColorRed ¥1,980
-          %input.right-cart-content__lower-item-explanation-btn{type: "submit", value: "カートに入れる"}/
-      .right-cart-content__lower-item
-        .right-cart-content__lower-item-image
-          image
-        .right-cart-content__lower-item-explanation
-          %p.right-cart-content__lower-item-explanation-name item-name
-          %p.right-cart-content__lower-item-explanation-price.FontColorRed ¥1,980
-          %input.right-cart-content__lower-item-explanation-btn{type: "submit", value: "カートに入れる"}/
-      .right-cart-content__lower-item
-        .right-cart-content__lower-item-image
-          image
-        .right-cart-content__lower-item-explanation
-          %p.right-cart-content__lower-item-explanation-name item-name
-          %p.right-cart-content__lower-item-explanation-price.FontColorRed ¥1,980
-          %input.right-cart-content__lower-item-explanation-btn{type: "submit", value: "カートに入れる"}/
-      .right-cart-content__lower-item
-        .right-cart-content__lower-item-image
-          image
-        .right-cart-content__lower-item-explanation
-          %p.right-cart-content__lower-item-explanation-name item-name
-          %p.right-cart-content__lower-item-explanation-price.FontColorRed ¥1,980
-          %input.right-cart-content__lower-item-explanation-btn{type: "submit", value: "カートに入れる"}/
+      - @recommend_items.each do |recommend_item|
+        .right-cart-content__lower-item
+          .right-cart-content__lower-item-image
+            - if recommend_item.item_images[0] == nil
+              = link_to image_tag('/images/no_image.png', size: '120x120'), "/items/#{recommend_item.id}"
+            - else
+              = link_to image_tag(recommend_item.item_images[0].image, size: '120x120'), "/items/#{recommend_item.id}"
+          .right-cart-content__lower-item-explanation
+            %p
+              = link_to(item_path(recommend_item), class: 'right-cart-content__lower-item-explanation-name') do
+                = recommend_item.name.truncate(15)
+            %p.right-cart-content__lower-item-explanation-price.FontColorRed
+              ¥ #{recommend_item.price.to_s(:delimited)}
+            -# %input.right-cart-content__lower-item-explanation-btn{type: "submit", value: "カートに入れる"}/
