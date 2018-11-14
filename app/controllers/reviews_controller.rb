@@ -14,6 +14,8 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
+    # 仮↓
+    @item = Item.find_by(id: "1")
     @review = Review.new
   end
 
