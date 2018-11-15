@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :move_to_login_screen, only: [:add_item]
+  before_action :secret_word, only: [:search]
 
   # GET /items
   # GET /items.json
@@ -92,6 +93,8 @@ class ItemsController < ApplicationController
       @items.delete(minus_item) #ヒットした商品からマイナスキーワードでヒットした商品を削除
     end
 
+    # @items = @items.page(params[:page]).per(2) #kaminariによるページネーションを指定
+
   end
   
   def add_item
@@ -111,6 +114,14 @@ class ItemsController < ApplicationController
 
     def move_to_login_screen
       redirect_to new_user_session_path unless user_signed_in?
+    end
+
+    def secret_word # 隠しコマンド
+      word = params[:keyword]
+      redirect_to 'https://di-v.co.jp/' if word == 'div'
+      redirect_to 'http://www.kochike.pref.kochi.lg.jp/~top/' if word == '高知家'
+      redirect_to 'https://gurutabi.gnavi.co.jp/a/a_2534/' if word == '柏島'
+      redirect_to 'https://hirome.co.jp/' if word == 'ひろめ市場'
     end
 
 end
