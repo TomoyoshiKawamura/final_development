@@ -1,31 +1,15 @@
 &__reviews {
   height: 100%;
-  width: 300px;
   padding: 0 20px;
-  float: left;
   &__evaluation {
     padding: 20px 0;
     border-bottom: solid 1px #e8e8e8;
     font-size: 13px;
+    width: 300px;
+    float: left;
     &__review-number {
       font-weight: bold;
       font-size: 21px;
-    }
-    &__stars {
-    }
-    &__graph {
-      padding: 20px 0;
-      border-bottom: solid 1px #e8e8e8;
-      &__five {
-      }
-      &__four {
-      }
-      &__three {
-      }
-      &__two {
-      }
-      &__one {
-      }
     }
     &__review {
       padding-top: 20px;
@@ -33,9 +17,34 @@
       font-size: 18px;
     }
     &__opinion {
+      padding-top: 10px;
     }
     &__write {
-      margin-top: 20px;
+      padding-top: 15px;
+    }
+  }
+  &__review {
+    padding: 20px 20px 20px 50px;
+    width: calc(100% - 370px);
+    float: left;
+    font-size: 13px;
+    &__name {
+      padding: 10px 0;
+    }
+    &__title {
+      font-weight: bold;
+    }
+    &__time {
+      font-size: 13px;
+    }
+    &__amazon-buy {
+      font-size: 11px;
+      font-weight: bold;
+      color: $caption;
+    }
+    &__text {
+      padding-top: 10px;
+      padding-bottom: 20px;
     }
   }
 }
