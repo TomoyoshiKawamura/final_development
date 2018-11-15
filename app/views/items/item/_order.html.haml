@@ -28,7 +28,7 @@
 
     .item__order__frame__cart
       .item__order__frame__cart--image
-        = link_to 'カートに入れる', "/items/#{@item.id}/add_item", method: :post
+        = link_to 'カートに入れる', "/items/#{@item.id}/add_item", method: :post, class: "item__order__frame__cart--button"
       / %input.item__order__frame__cart--button{:name => "cart", :type => "button", :value => "カートに入れる"}/
 
     .item__order__frame__buy
