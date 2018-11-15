@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :move_to_login_screen, only: [:add_item]
+  before_action :secret_word, only: [:search]
 
   # GET /items
   # GET /items.json
@@ -68,8 +69,26 @@ class ItemsController < ApplicationController
   end
 
   def search
-    # 検索フォームのキーワードをあいまい検索する
-    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%")
+    redirect_to root_path if params[:keyword] == "" # キーワードが入力されていないとトップページに飛ぶ
+
+    keywords = params[:keyword].split(/[[:blank:]]+/).select(&:present?)
+    negative_keywords, positive_keywords = 
+    keywords.partition {|keyword| keyword.start_with?("-") }
+
+    @items = Item.none
+
+    positive_keywords.each do |keyword|
+      @items = @items.or(Item.where("name LIKE ?", "%#{keyword}%"))
+    end
+
+    negative_keywords.each {|word| word.slice!(/^-/) }
+
+    negative_keywords.each do |keyword|
+      next if keyword.blank?
+      @items = @items.where.not("name LIKE ?", "%#{keyword}%")
+    end
+
+    @items = @items.page(params[:page]).per(25) #kaminariによるページネーションを指定
   end
 
   def add_item
@@ -89,6 +108,14 @@ class ItemsController < ApplicationController
 
     def move_to_login_screen
       redirect_to new_user_session_path unless user_signed_in?
+    end
+
+    def secret_word # 隠しコマンド
+      word = params[:keyword]
+      redirect_to 'https://di-v.co.jp/' if word == 'div'
+      redirect_to 'http://www.kochike.pref.kochi.lg.jp/~top/' if word == '高知家'
+      redirect_to 'https://gurutabi.gnavi.co.jp/a/a_2534/' if word == '柏島'
+      redirect_to 'https://hirome.co.jp/' if word == 'ひろめ市場'
     end
 
 end

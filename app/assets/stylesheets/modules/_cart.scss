@@ -225,6 +225,7 @@
   .right-cart-content__lower {
     height: 78%;
     border: 1px solid #DDDDDD;
+    border-radius: 5px;
     padding: 10px;
     font-size: 14px;
     box-sizing: border-box;
@@ -236,13 +237,13 @@
     width: 100%;
     background-color: white;
     margin: 20px auto;
-    border: 1px solid #DDDDDD;
+    // border: 1px solid #DDDDDD; 確認用
   }
   
   .right-cart-content__lower-item-image {
     height: 140px;
     width: 35%;
-    background-color: red;
+    // background-color: red; 確認用
     float: left;
   }
 

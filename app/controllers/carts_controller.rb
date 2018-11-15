@@ -6,6 +6,7 @@ class CartsController < ApplicationController
   # GET /carts.json
   def index
     @items = current_user.cart.items.includes(:cart_items).order("cart_items.id ASC")
+    @recommend_items = Item.order("RAND()").limit(4)
   end
 
   # GET /carts/1
