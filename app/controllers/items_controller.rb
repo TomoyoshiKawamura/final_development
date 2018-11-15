@@ -66,35 +66,26 @@ class ItemsController < ApplicationController
   end
 
   def search
-    # OPTIMIZE: マイナスキーワードでもDBに接続しているので改善するべきだと思う
-
     redirect_to root_path if params[:keyword] == "" # キーワードが入力されていないとトップページに飛ぶ
 
-    split_keyword = params[:keyword].split(/[[:blank:]]+/) # 空白で区切って配列にする
-    minus_keyword = split_keyword.select {|word| word.match(/^-/) } # 先頭に-がついたキーワードを抜きだす
+    keywords = params[:keyword].split(/[[:blank:]]+/).select(&:present?)
+    negative_keywords, positive_keywords = 
+    keywords.partition {|keyword| keyword.start_with?("-") }
 
-    split_keyword.reject! {|word| word.match(/^-/) } # 先頭に-がついたキーワードを配列から削除
-    minus_keyword.each {|word| word.slice!(/^-/) } # マイナスキーワードの先頭の-を削除する
+    @items = Item.none
 
-    @items = []
-    split_keyword.each do |keyword|
-      next if keyword == ""
-      @items += Item.where('name LIKE(?)', "%#{keyword}%") # 部分一致で検索
-    end
-    @items.uniq! #重複した商品を削除する
-
-    minus_items = []
-    minus_keyword.each do |keyword| # マイナスキーワードで検索
-      next if keyword == ""
-      minus_items += Item.where('name LIKE(?)', "%#{keyword}%") # 部分一致で検索
+    positive_keywords.each do |keyword|
+      @items = @items.or(Item.where("name LIKE ?", "%#{keyword}%"))
     end
 
-    minus_items.each do |minus_item|
-      @items.delete(minus_item) #ヒットした商品からマイナスキーワードでヒットした商品を削除
+    negative_keywords.each {|word| word.slice!(/^-/) }
+
+    negative_keywords.each do |keyword|
+      next if keyword.blank?
+      @items = @items.where.not("name LIKE ?", "%#{keyword}%")
     end
 
-    # @items = @items.page(params[:page]).per(2) #kaminariによるページネーションを指定
-
+    @items = @items.page(params[:page]).per(25) #kaminariによるページネーションを指定
   end
   
   def add_item
