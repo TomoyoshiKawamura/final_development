@@ -128,6 +128,7 @@ class ItemsController < ApplicationController
       redirect_to 'http://www.kochike.pref.kochi.lg.jp/~top/' if word == '高知家'
       redirect_to 'https://gurutabi.gnavi.co.jp/a/a_2534/' if word == '柏島'
       redirect_to 'https://hirome.co.jp/' if word == 'ひろめ市場'
+      redirect_to 'https://twitter.com/katsuo__2011' if word == 'カツオ人間'
     end
 
 end
