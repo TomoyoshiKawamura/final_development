@@ -79,7 +79,7 @@ class CartsController < ApplicationController
 
 
   def buy
-    # render layout: false #購入確認画面ではヘッダーとフッター表示しない
+    # ここのヘッダーとフッターを消す処理はjsで display:none を読み込ませると良いと思う　2018/11/16 安岡
     @items = current_user.cart.items.includes(:cart_items).order("cart_items.id ASC")
   end
 
