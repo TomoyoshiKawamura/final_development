@@ -18,7 +18,7 @@
               = link_to image_tag('/images/no_image.png', size: '250x250'), "/items/#{item.id}"
             - else
               = link_to image_tag(item.item_images[0].image, size: '250x250'), "/items/#{item.id}"
-      %h3.category recommend
+      -# %h3.category recommend
       .items
         - @items2.each do |item|
           .top_page-item-list
@@ -26,7 +26,7 @@
               = link_to image_tag('/images/no_image.png', size: '250x250'), "/items/#{item.id}"
             - else
               = link_to image_tag(item.item_images[0].image, size: '250x250'), "/items/#{item.id}"
-      %h3.category recommend
+      -# %h3.category recommend
       .items
         - @items3.each do |item|
           .top_page-item-list
@@ -34,7 +34,7 @@
               = link_to image_tag('/images/no_image.png', size: '250x250'), "/items/#{item.id}"
             - else
               = link_to image_tag(item.item_images[0].image, size: '250x250'), "/items/#{item.id}"
-      %h3.category recommend
+      -# %h3.category recommend
       .items
         - @items4.each do |item|
           .top_page-item-list
