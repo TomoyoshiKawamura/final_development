@@ -69,7 +69,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    redirect_to root_path if params[:keyword] == "" # キーワードが入力されていないとトップページに飛ぶ
+    return redirect_to root_path if params[:keyword] == "" # キーワードが入力されていないとトップページに飛ぶ
 
     keywords = params[:keyword].split(/[[:blank:]]+/).select(&:present?)
     negative_keywords, positive_keywords = 
@@ -82,7 +82,7 @@ class ItemsController < ApplicationController
       @items = @items.where("name LIKE ?", "%#{keyword}%")
     end
 
-    @items = Item.none.page(params[:page]).per(25) if positive_keywords.empty?
+    return @items = Item.none.page(params[:page]).per(25) if positive_keywords.empty? # -だけで検索すると結果を表示しないように
     #AND検索ここまで
 
     #OR検索
@@ -92,8 +92,6 @@ class ItemsController < ApplicationController
     #   @items = @items.or(Item.where("name LIKE ?", "%#{keyword}%"))
     # end
     #OR検索ここまで
-
-    # binding.pry
 
     negative_keywords.each {|word| word.slice!(/^-/) }
 
