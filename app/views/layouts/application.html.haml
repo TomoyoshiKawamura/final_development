@@ -10,9 +10,9 @@
 
   %body
     / サインアップ、ログイン画面、購入確認画面の時にはヘッダーとフッターを表示しない
-    - unless request.filtered_parameters[:controller].include?('devise') || request.filtered_parameters[:action].include?('buy')
+    - if request.filtered_parameters[:controller].include?('devise') || request.filtered_parameters[:action].include?('buy')
+      = yield
+    - else
       = render "layouts/header"
       = yield
       = render "layouts/footer"
-    - else
-      = yield
