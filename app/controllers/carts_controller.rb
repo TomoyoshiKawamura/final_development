@@ -69,6 +69,7 @@ class CartsController < ApplicationController
   # DELETE /carts/1.json
   
   def destroy
+    # 次やるならせめて商品をカートから削除できる機能をつけたかったなぁ・・・ 2018/11/16 安岡
     @cart.destroy
     respond_to do |format|
       format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
