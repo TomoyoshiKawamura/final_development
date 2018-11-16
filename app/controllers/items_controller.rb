@@ -75,11 +75,25 @@ class ItemsController < ApplicationController
     negative_keywords, positive_keywords = 
     keywords.partition {|keyword| keyword.start_with?("-") }
 
-    @items = Item.none
+    #AND検索
+    @items = Item.where("name LIKE ?", "%#{positive_keywords.first}%")
 
     positive_keywords.each do |keyword|
-      @items = @items.or(Item.where("name LIKE ?", "%#{keyword}%"))
+      @items = @items.where("name LIKE ?", "%#{keyword}%")
     end
+
+    @items = Item.none.page(params[:page]).per(25) if positive_keywords.empty?
+    #AND検索ここまで
+
+    #OR検索
+    # @items = Item.none 
+    
+    # positive_keywords.each do |keyword|
+    #   @items = @items.or(Item.where("name LIKE ?", "%#{keyword}%"))
+    # end
+    #OR検索ここまで
+
+    # binding.pry
 
     negative_keywords.each {|word| word.slice!(/^-/) }
 
